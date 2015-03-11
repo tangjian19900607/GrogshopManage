@@ -1,0 +1,48 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.grogshop.manage.ui.LoginActivity">
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:hint="请输入用户名"
+        android:paddingLeft="35dp" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignBaseline="@id/username"
+        android:layout_alignLeft="@id/username"
+        android:layout_alignBottom="@id/username"
+        android:layout_alignTop="@id/username" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_below="@id/username"
+        android:layout_marginTop="20dp"
+        android:hint="请输入密码"
+        android:paddingLeft="35dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignBaseline="@id/password"
+        android:layout_alignLeft="@id/password"
+        android:layout_alignBottom="@id/password"
+        android:layout_alignTop="@id/password" />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="登录" />
+
+</RelativeLayout>

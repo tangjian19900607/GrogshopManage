@@ -1,0 +1,24 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context="com.grogshop.manage.ui.LunchActivity">
+
+    <Button
+        android:id="@+id/admin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="管理员"
+        android:textSize="18sp"/>
+    <Button
+        android:id="@+id/customer"
+        android:layout_below="@id/admin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="顾客"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"/>
+
+</RelativeLayout>
+<!-- From: file:/Users/tangjian/androidExample/android-play-location/GrogshopManage/app/src/main/res/layout/activity_lunch.xml -->
