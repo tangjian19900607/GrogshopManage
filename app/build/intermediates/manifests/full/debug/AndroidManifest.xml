@@ -46,6 +46,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- 关于界面 -->
         <activity
             android:name="com.grogshop.manage.ui.AboutActivity"
             android:label="@string/title_activity_about"
@@ -53,6 +54,11 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.grogshop.manage.ui.MainActivity" />
+        </activity>
+        <!-- 管理员界面 -->
+        <activity
+            android:name="com.grogshop.manage.ui.AdminMainActivity"
+            android:label="@string/title_activity_admin_main" >
         </activity>
     </application>
 

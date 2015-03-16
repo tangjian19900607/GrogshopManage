@@ -2,4 +2,6 @@
 <resources>
     <color name="button_bg_normal">#3949AB</color>
     <color name="button_bg_pressed">#303F9F</color>
+    <color name="purple_normal">#9C27B0</color>
+    <color name="purple_pressed">#BA68C8</color>
 </resources>

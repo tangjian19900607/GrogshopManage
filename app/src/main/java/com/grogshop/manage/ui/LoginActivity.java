@@ -19,11 +19,12 @@ import cn.bmob.v3.listener.GetListener;
 /**
  * 登录界面，仅限管理员
  */
-public class LoginActivity extends ActionBarActivity implements View.OnClickListener{
+public class LoginActivity extends ActionBarActivity implements View.OnClickListener {
 
     private Button mLoginButton;
     private EditText mUserNameEditText;
     private EditText mPasswordEditText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,21 +46,25 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        String username = mUserNameEditText.getText().toString().trim();
-        String password = mPasswordEditText.getText().toString().trim();
-        User user = new User("1",username,password);
+        final String username = mUserNameEditText.getText().toString().trim();
+        final String password = mPasswordEditText.getText().toString().trim();
+        User user = new User("1", username, password);
         BmobQuery<User> userBmobQuery = new BmobQuery<User>();
         userBmobQuery.getObject(this, "31d9e5d1a9", new GetListener<User>() {
             @Override
             public void onSuccess(User user) {
 //                Toast.makeText(LoginActivity.this,"Success",Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-                startActivity(intent);
+                if ((null != user) && (user.getUserName().equals(username)) && user.getPassword().equals(password)) {
+                    Intent intent = new Intent(LoginActivity.this, AdminMainActivity.class);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(LoginActivity.this,"用户名或密码错误",Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
             public void onFailure(int i, String s) {
-                Toast.makeText(LoginActivity.this,"Failure",Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
             }
         });
     }

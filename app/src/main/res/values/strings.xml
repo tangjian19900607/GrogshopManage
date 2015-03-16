@@ -6,4 +6,5 @@
     <string name="title_activity_login">登录</string>
     <string name="title_activity_lunch">酒店点菜</string>
     <string name="title_activity_about">AboutActivity</string>
+    <string name="title_activity_admin_main">后台管理</string>
 </resources>

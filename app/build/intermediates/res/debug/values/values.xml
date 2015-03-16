@@ -59,6 +59,12 @@
     <color name="primary_text_default_material_light">#de000000</color>
     <color name="primary_text_disabled_material_dark">#4Dffffff</color>
     <color name="primary_text_disabled_material_light">#39000000</color>
+    <!-- From: file:/Users/tangjian/androidExample/android-play-location/GrogshopManage/app/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="purple_normal">#9C27B0</color>
+    <color name="purple_pressed">#BA68C8</color>
+    <!-- From: file:/Users/tangjian/androidExample/android-play-location/GrogshopManage/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <eat-comment/>
     <color name="ripple_material_dark">#40ffffff</color>
     <color name="ripple_material_light">#40000000</color>
     <color name="secondary_text_default_material_dark">#b3ffffff</color>
@@ -171,6 +177,7 @@
     <string name="app_name">酒店点菜</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_about">AboutActivity</string>
+    <string name="title_activity_admin_main">后台管理</string>
     <string name="title_activity_login">登录</string>
     <string name="title_activity_lunch">酒店点菜</string>
     <!-- From: file:/Users/tangjian/androidExample/android-play-location/GrogshopManage/app/src/main/res/values/styles.xml -->
