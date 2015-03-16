@@ -2,6 +2,8 @@ package com.grogshop.manage.domain;
 
 import java.io.Serializable;
 
+import cn.bmob.v3.BmobObject;
+
 /**
  * Created by tangjian on 11/3/15.
  * email:tangjian19900607@gmail.com
@@ -9,7 +11,7 @@ import java.io.Serializable;
  * WeChat:ITnan562980080
  * 菜品的实体
  */
-public class Dish implements Serializable {
+public class Dish  extends BmobObject implements Serializable {
     /**
      * 菜的名称
      */

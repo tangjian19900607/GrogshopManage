@@ -10,14 +10,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="管理员"
-        android:textSize="18sp"/>
+        android:textColor="@android:color/white"
+        android:background="@drawable/button_bg"
+        android:textSize="18sp" />
+
     <Button
         android:id="@+id/customer"
         android:layout_below="@id/admin"
         android:layout_width="match_parent"
+        android:textColor="@android:color/white"
         android:layout_height="wrap_content"
         android:text="顾客"
+        android:background="@drawable/button_bg"
         android:layout_marginTop="10dp"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
 
 </RelativeLayout>

@@ -28,6 +28,12 @@
     <color name="bright_foreground_inverse_material_light">@color/bright_foreground_material_dark</color>
     <color name="bright_foreground_material_dark">@android:color/white</color>
     <color name="bright_foreground_material_light">@android:color/black</color>
+    <!-- From: file:/Users/tangjian/androidExample/android-play-location/GrogshopManage/app/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="button_bg_normal">#3949AB</color>
+    <color name="button_bg_pressed">#303F9F</color>
+    <!-- From: file:/Users/tangjian/androidExample/android-play-location/GrogshopManage/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <eat-comment/>
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
     <color name="dim_foreground_disabled_material_dark">#80bebebe</color>
@@ -164,6 +170,7 @@
     <string name="action_settings">Settings</string>
     <string name="app_name">酒店点菜</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_about">AboutActivity</string>
     <string name="title_activity_login">登录</string>
     <string name="title_activity_lunch">酒店点菜</string>
     <!-- From: file:/Users/tangjian/androidExample/android-play-location/GrogshopManage/app/src/main/res/values/styles.xml -->

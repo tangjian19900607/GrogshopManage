@@ -2,6 +2,8 @@ package com.grogshop.manage.domain;
 
 import java.io.Serializable;
 
+import cn.bmob.v3.BmobObject;
+
 /**
  * Created by tangjian on 11/3/15.
  * email:tangjian19900607@gmail.com
@@ -9,7 +11,7 @@ import java.io.Serializable;
  * WeChat:ITnan562980080
  * 用户实体
  */
-public class User implements Serializable {
+public class User extends BmobObject implements Serializable {
 
     /**
      * 用户类型
@@ -20,13 +22,18 @@ public class User implements Serializable {
      * 用户名称
      */
     private String userName;
+    /**
+     * 用户密码
+     */
+    private String password;
 
     public User() {
     }
 
-    public User(String type, String userName) {
+    public User(String type, String userName, String password) {
         this.type = type;
         this.userName = userName;
+        this.password = password;
     }
 
     public String getType() {
@@ -43,5 +50,13 @@ public class User implements Serializable {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
