@@ -72,35 +72,75 @@ ADDED from AndroidManifest.xml:29:9
 	android:name
 		ADDED from AndroidManifest.xml:30:13
 activity#com.grogshop.manage.ui.LunchActivity
-ADDED from AndroidManifest.xml:34:9
+ADDED from AndroidManifest.xml:33:9
 	android:label
-		ADDED from AndroidManifest.xml:36:13
-	android:name
 		ADDED from AndroidManifest.xml:35:13
+	android:name
+		ADDED from AndroidManifest.xml:34:13
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from AndroidManifest.xml:37:13
+ADDED from AndroidManifest.xml:36:13
 action#android.intent.action.MAIN
-ADDED from AndroidManifest.xml:38:17
+ADDED from AndroidManifest.xml:37:17
 	android:name
-		ADDED from AndroidManifest.xml:38:25
+		ADDED from AndroidManifest.xml:37:25
 category#android.intent.category.LAUNCHER
-ADDED from AndroidManifest.xml:40:17
+ADDED from AndroidManifest.xml:39:17
 	android:name
-		ADDED from AndroidManifest.xml:40:27
+		ADDED from AndroidManifest.xml:39:27
 activity#com.grogshop.manage.ui.AboutActivity
-ADDED from AndroidManifest.xml:44:9
+ADDED from AndroidManifest.xml:43:9
 	android:label
-		ADDED from AndroidManifest.xml:46:13
-	android:parentActivityName
-		ADDED from AndroidManifest.xml:47:13
-	android:name
 		ADDED from AndroidManifest.xml:45:13
-activity#com.grogshop.manage.ui.AdminMainActivity
-ADDED from AndroidManifest.xml:53:9
-	android:label
-		ADDED from AndroidManifest.xml:55:13
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:46:13
 	android:name
+		ADDED from AndroidManifest.xml:44:13
+activity#com.grogshop.manage.ui.AdminMainActivity
+ADDED from AndroidManifest.xml:52:9
+	android:label
 		ADDED from AndroidManifest.xml:54:13
+	android:name
+		ADDED from AndroidManifest.xml:53:13
+activity#com.grogshop.manage.ui.DesktopActivity
+ADDED from AndroidManifest.xml:55:9
+	android:label
+		ADDED from AndroidManifest.xml:57:13
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:58:13
+	android:name
+		ADDED from AndroidManifest.xml:56:13
+activity#com.grogshop.manage.ui.AddDishActivity
+ADDED from AndroidManifest.xml:64:9
+	android:label
+		ADDED from AndroidManifest.xml:66:13
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:67:13
+	android:name
+		ADDED from AndroidManifest.xml:65:13
+activity#com.grogshop.manage.ui.OrderActivity
+ADDED from AndroidManifest.xml:73:9
+	android:label
+		ADDED from AndroidManifest.xml:75:13
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:76:13
+	android:name
+		ADDED from AndroidManifest.xml:74:13
+activity#com.grogshop.manage.ui.ADSActivity
+ADDED from AndroidManifest.xml:82:9
+	android:label
+		ADDED from AndroidManifest.xml:84:13
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:85:13
+	android:name
+		ADDED from AndroidManifest.xml:83:13
+activity#com.grogshop.manage.ui.DesktopStateActivity
+ADDED from AndroidManifest.xml:91:9
+	android:label
+		ADDED from AndroidManifest.xml:93:13
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:94:13
+	android:name
+		ADDED from AndroidManifest.xml:92:13
 uses-sdk
 INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
 MERGED from com.android.support:appcompat-v7:21.0.3:15:5

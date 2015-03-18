@@ -42,13 +42,17 @@ public class AdminAdapter extends BaseAdapter {
         return position;
     }
 
+    public List<AdminItem> getData() {
+        return mList;
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (null == convertView) {
             convertView = mLayoutInflater.inflate(R.layout.activity_admin_item, null);
         }
         TextView textView = (TextView) convertView.findViewById(R.id.text);
-        textView.setText(mList.get(position).getTitle());
+        textView.setText(mList.get(position).getName());
         return convertView;
     }
 }

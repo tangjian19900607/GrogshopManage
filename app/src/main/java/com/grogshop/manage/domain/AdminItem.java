@@ -11,14 +11,14 @@ import java.io.Serializable;
 public class AdminItem implements Serializable {
 
     private int position;
-    private String title;
+    private String name;
 
     public AdminItem() {
     }
 
-    public AdminItem(int position, String title) {
+    public AdminItem(int position, String name) {
         this.position = position;
-        this.title = title;
+        this.name = name;
     }
 
     public int getPosition() {
@@ -29,11 +29,11 @@ public class AdminItem implements Serializable {
         this.position = position;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String title) {
+        this.name = title;
     }
 }

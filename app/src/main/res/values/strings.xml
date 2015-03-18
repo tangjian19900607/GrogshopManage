@@ -7,4 +7,9 @@
     <string name="title_activity_lunch">酒店点菜</string>
     <string name="title_activity_about">AboutActivity</string>
     <string name="title_activity_admin_main">后台管理</string>
+    <string name="title_activity_desktop">DesktopActivity</string>
+    <string name="title_activity_add_dish">AddDishActivity</string>
+    <string name="title_activity_order">OrderActivity</string>
+    <string name="title_activity_ads">ADSActivity</string>
+    <string name="title_activity_desktop_state">DesktopStateActivity</string>
 </resources>

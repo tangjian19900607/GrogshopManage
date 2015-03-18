@@ -1322,7 +1322,7 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f09002e;
         public static final int action_mode_bar_stub=0x7f09002d;
         public static final int action_mode_close_button=0x7f090020;
-        public static final int action_settings=0x7f090046;
+        public static final int action_settings=0x7f090048;
         public static final int activity_chooser_view_content=0x7f090021;
         public static final int admin=0x7f090044;
         public static final int always=0x7f090016;
@@ -1332,6 +1332,7 @@ containing a value of this type.
         public static final int customer=0x7f090045;
         public static final int decor_content_parent=0x7f09002f;
         public static final int default_activity_button=0x7f090024;
+        public static final int desktop=0x7f090047;
         public static final int dialog=0x7f09001b;
         public static final int disableHome=0x7f09000c;
         public static final int dropdown=0x7f09001c;
@@ -1339,6 +1340,7 @@ containing a value of this type.
         public static final int end=0x7f090014;
         public static final int expand_activities_button=0x7f090022;
         public static final int expanded_menu=0x7f090028;
+        public static final int grid_desktop=0x7f090046;
         public static final int grid_view=0x7f090040;
         public static final int home=0x7f090004;
         public static final int homeAsUp=0x7f09000d;
@@ -1409,19 +1411,30 @@ containing a value of this type.
         public static final int abc_search_view=0x7f040015;
         public static final int abc_simple_dropdown_hint=0x7f040016;
         public static final int activity_about=0x7f040017;
-        public static final int activity_admin_item=0x7f040018;
-        public static final int activity_admin_main=0x7f040019;
-        public static final int activity_login=0x7f04001a;
-        public static final int activity_lunch=0x7f04001b;
-        public static final int activity_main=0x7f04001c;
-        public static final int support_simple_spinner_dropdown_item=0x7f04001d;
+        public static final int activity_add_dish=0x7f040018;
+        public static final int activity_admin_item=0x7f040019;
+        public static final int activity_admin_main=0x7f04001a;
+        public static final int activity_ads=0x7f04001b;
+        public static final int activity_desktop=0x7f04001c;
+        public static final int activity_desktop_state=0x7f04001d;
+        public static final int activity_login=0x7f04001e;
+        public static final int activity_lunch=0x7f04001f;
+        public static final int activity_main=0x7f040020;
+        public static final int activity_main_item=0x7f040021;
+        public static final int activity_order=0x7f040022;
+        public static final int support_simple_spinner_dropdown_item=0x7f040023;
     }
     public static final class menu {
         public static final int menu_about=0x7f0d0000;
-        public static final int menu_admin_main=0x7f0d0001;
-        public static final int menu_login=0x7f0d0002;
-        public static final int menu_lunch=0x7f0d0003;
-        public static final int menu_main=0x7f0d0004;
+        public static final int menu_ad=0x7f0d0001;
+        public static final int menu_add_dish=0x7f0d0002;
+        public static final int menu_admin_main=0x7f0d0003;
+        public static final int menu_desktop=0x7f0d0004;
+        public static final int menu_desktop_state=0x7f0d0005;
+        public static final int menu_login=0x7f0d0006;
+        public static final int menu_lunch=0x7f0d0007;
+        public static final int menu_main=0x7f0d0008;
+        public static final int menu_order=0x7f0d0009;
     }
     public static final class mipmap {
         public static final int ic_launcher=0x7f030000;
@@ -1447,9 +1460,14 @@ containing a value of this type.
         public static final int app_name=0x7f0b0011;
         public static final int hello_world=0x7f0b0012;
         public static final int title_activity_about=0x7f0b0013;
-        public static final int title_activity_admin_main=0x7f0b0014;
-        public static final int title_activity_login=0x7f0b0015;
-        public static final int title_activity_lunch=0x7f0b0016;
+        public static final int title_activity_add_dish=0x7f0b0014;
+        public static final int title_activity_admin_main=0x7f0b0015;
+        public static final int title_activity_ads=0x7f0b0016;
+        public static final int title_activity_desktop=0x7f0b0017;
+        public static final int title_activity_desktop_state=0x7f0b0018;
+        public static final int title_activity_login=0x7f0b0019;
+        public static final int title_activity_lunch=0x7f0b001a;
+        public static final int title_activity_order=0x7f0b001b;
     }
     public static final class style {
         /**  Customize your theme here. 
