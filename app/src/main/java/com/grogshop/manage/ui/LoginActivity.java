@@ -1,13 +1,12 @@
 package com.grogshop.manage.ui;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.grogshop.manage.R;
@@ -24,6 +23,7 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
     private Button mLoginButton;
     private EditText mUserNameEditText;
     private EditText mPasswordEditText;
+    private ProgressBar mContentLoadingProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +37,7 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
         mLoginButton = (Button) this.findViewById(R.id.login);
         mUserNameEditText = (EditText) this.findViewById(R.id.username);
         mPasswordEditText = (EditText) this.findViewById(R.id.password);
+        mContentLoadingProgressBar = (ProgressBar) this.findViewById(R.id.progressbar);
     }
 
     private void setListener() {
@@ -46,6 +47,7 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
+        mContentLoadingProgressBar.setVisibility(View.VISIBLE);
         final String username = mUserNameEditText.getText().toString().trim();
         final String password = mPasswordEditText.getText().toString().trim();
         User user = new User("1", username, password);
@@ -53,17 +55,18 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
         userBmobQuery.getObject(this, "31d9e5d1a9", new GetListener<User>() {
             @Override
             public void onSuccess(User user) {
-//                Toast.makeText(LoginActivity.this,"Success",Toast.LENGTH_SHORT).show();
+                mContentLoadingProgressBar.setVisibility(View.GONE);
                 if ((null != user) && (user.getUserName().equals(username)) && user.getPassword().equals(password)) {
                     Intent intent = new Intent(LoginActivity.this, AdminMainActivity.class);
                     startActivity(intent);
-                }else{
-                    Toast.makeText(LoginActivity.this,"用户名或密码错误",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(LoginActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(int i, String s) {
+                mContentLoadingProgressBar.setVisibility(View.GONE);
                 Toast.makeText(LoginActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
             }
         });
