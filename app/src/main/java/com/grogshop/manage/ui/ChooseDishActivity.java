@@ -11,7 +11,7 @@ import com.grogshop.manage.R;
 /**
  * 餐桌界面
  */
-public class DesktopActivity extends ActionBarActivity {
+public class ChooseDishActivity extends ActionBarActivity {
     public static final String DESKTOP_NAME = "name";
     public static final String DESKTOP_POSITION = "position";
 
@@ -31,6 +31,7 @@ public class DesktopActivity extends ActionBarActivity {
         Intent intent = getIntent();
         if (null != intent) {
             mDesktopName = intent.getStringExtra(DESKTOP_NAME);
+            mDesktopName = mDesktopName.replace("\n","");
             mDesktopPosition = intent.getIntExtra(DESKTOP_POSITION, 0);
         }
     }

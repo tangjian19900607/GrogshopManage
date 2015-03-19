@@ -1,5 +1,6 @@
 package com.grogshop.manage.ui;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -7,20 +8,19 @@ import android.view.MenuItem;
 
 import com.grogshop.manage.R;
 
-public class AddDishActivity extends ActionBarActivity {
+public class ADSManageActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_dish);
-        String name = getIntent().getStringExtra(AdminMainActivity.NAME);
-        setTitle(name);
+        setContentView(R.layout.activity_ads);
+        setTitle("公告管理");
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_add_dish, menu);
+        getMenuInflater().inflate(R.menu.menu_ad, menu);
         return true;
     }
 
@@ -32,7 +32,9 @@ public class AddDishActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.add_ads) {
+            Intent intent = new Intent(this,AddADSActivity.class);
+            startActivity(intent);
             return true;
         }
 

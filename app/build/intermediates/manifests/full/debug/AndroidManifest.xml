@@ -14,6 +14,11 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:name="android.hardware.camera2"
+        android:required="true" />
 
     <application
         android:name="com.grogshop.manage.common.AppApplication"
@@ -58,8 +63,9 @@
         <activity
             android:name="com.grogshop.manage.ui.AdminMainActivity"
             android:label="@string/title_activity_admin_main" />
+        <!-- 选菜界面 -->
         <activity
-            android:name="com.grogshop.manage.ui.DesktopActivity"
+            android:name="com.grogshop.manage.ui.ChooseDishActivity"
             android:label="@string/title_activity_desktop"
             android:parentActivityName="com.grogshop.manage.ui.MainActivity" >
             <meta-data
@@ -68,16 +74,16 @@
         </activity>
         <!-- 菜品增加 -->
         <activity
-            android:name="com.grogshop.manage.ui.AddDishActivity"
+            android:name="com.grogshop.manage.ui.DishManageActivity"
             android:label="@string/title_activity_add_dish"
             android:parentActivityName="com.grogshop.manage.ui.AdminMainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.grogshop.manage.ui.AdminMainActivity" />
         </activity>
-        <!-- 订单广告 -->
+        <!-- 订单管理 -->
         <activity
-            android:name="com.grogshop.manage.ui.OrderActivity"
+            android:name="com.grogshop.manage.ui.OrderManageActivity"
             android:label="@string/title_activity_order"
             android:parentActivityName="com.grogshop.manage.ui.AdminMainActivity" >
             <meta-data
@@ -86,21 +92,29 @@
         </activity>
         <!-- 酒店广告 -->
         <activity
-            android:name="com.grogshop.manage.ui.ADSActivity"
+            android:name="com.grogshop.manage.ui.ADSManageActivity"
             android:label="@string/title_activity_ads"
             android:parentActivityName="com.grogshop.manage.ui.AdminMainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.grogshop.manage.ui.AdminMainActivity" />
         </activity>
-        <!-- 餐桌状态 -->
+        <!-- 服务员管理 -->
         <activity
-            android:name="com.grogshop.manage.ui.DesktopStateActivity"
+            android:name="com.grogshop.manage.ui.PersonManageActivity"
             android:label="@string/title_activity_desktop_state"
             android:parentActivityName="com.grogshop.manage.ui.AdminMainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.grogshop.manage.ui.AdminMainActivity" />
+        </activity>
+        <activity
+            android:name="com.grogshop.manage.ui.AddADSActivity"
+            android:label="@string/title_activity_add_ads"
+            android:parentActivityName="com.grogshop.manage.ui.ADSManageActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.grogshop.manage.ui.ADSManageActivity" />
         </activity>
     </application>
 

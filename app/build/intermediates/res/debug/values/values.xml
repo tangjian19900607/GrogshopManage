@@ -51,6 +51,12 @@
     <color name="material_blue_grey_950">#ff21272b</color>
     <color name="material_deep_teal_200">#ff80cbc4</color>
     <color name="material_deep_teal_500">#ff009688</color>
+    <!-- From: file:/Users/tangjian/androidExample/android-play-location/GrogshopManage/app/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="orange_normal">#FF9800</color>
+    <color name="orange_pressed">#FFCC80</color>
+    <!-- From: file:/Users/tangjian/androidExample/android-play-location/GrogshopManage/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <eat-comment/>
     <color name="primary_dark_material_dark">#ff000000</color>
     <color name="primary_dark_material_light">#ff757575</color>
     <color name="primary_material_dark">#ff212121</color>
@@ -177,6 +183,7 @@
     <string name="app_name">酒店点菜</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_about">AboutActivity</string>
+    <string name="title_activity_add_ads">AddADSActivity</string>
     <string name="title_activity_add_dish">AddDishActivity</string>
     <string name="title_activity_admin_main">后台管理</string>
     <string name="title_activity_ads">ADSActivity</string>
@@ -187,7 +194,7 @@
     <string name="title_activity_order">OrderActivity</string>
     <!-- From: file:/Users/tangjian/androidExample/android-play-location/GrogshopManage/app/src/main/res/values/styles.xml -->
     <eat-comment/>
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
         <!-- Customize your theme here. -->
     </style>
     <!-- From: file:/Users/tangjian/androidExample/android-play-location/GrogshopManage/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->

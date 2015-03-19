@@ -4,4 +4,6 @@
     <color name="button_bg_pressed">#303F9F</color>
     <color name="purple_normal">#9C27B0</color>
     <color name="purple_pressed">#BA68C8</color>
+    <color name="orange_normal">#FF9800</color>
+    <color name="orange_pressed">#FFCC80</color>
 </resources>

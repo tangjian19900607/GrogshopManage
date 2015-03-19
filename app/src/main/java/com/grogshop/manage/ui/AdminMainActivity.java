@@ -3,8 +3,6 @@ package com.grogshop.manage.ui;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -37,10 +35,10 @@ public class AdminMainActivity extends ActionBarActivity implements AdapterView.
 
     private void initData() {
         List<AdminItem> list = new ArrayList<AdminItem>();
-        list.add(new AdminItem(001, "新增\n菜品"));
+        list.add(new AdminItem(001, "菜品\n管理"));
         list.add(new AdminItem(002, "订单\n管理"));
-        list.add(new AdminItem(003, "餐桌\n状态"));
-        list.add(new AdminItem(004, "酒店\n公告"));
+        list.add(new AdminItem(003, "人员\n管理"));
+        list.add(new AdminItem(004, "公告\n管理"));
         mAdminAdapter = new AdminAdapter(this, list);
         mGridView.setAdapter(mAdminAdapter);
     }
@@ -56,30 +54,30 @@ public class AdminMainActivity extends ActionBarActivity implements AdapterView.
         int index = mAdminAdapter.getData().get(position).getPosition();
         switch (position) {
             case 0:
-                // 增加菜的种类
-                Intent intent1 = new Intent(this, AddDishActivity.class);
-                intent1.putExtra(NAME, name);
+                // 菜品管理
+                Intent intent1 = new Intent(this, DishManageActivity.class);
+                intent1.putExtra(NAME, "菜品管理");
                 intent1.putExtra(POSITION, index);
                 startActivity(intent1);
                 break;
             case 1:
                 // 订单管理
-                Intent intent2 = new Intent(this, OrderActivity.class);
-                intent2.putExtra(NAME, name);
+                Intent intent2 = new Intent(this, OrderManageActivity.class);
+                intent2.putExtra(NAME, "订单管理");
                 intent2.putExtra(POSITION, index);
                 startActivity(intent2);
                 break;
             case 2:
-                // 餐桌状态
-                Intent intent3 = new Intent(this, DesktopStateActivity.class);
-                intent3.putExtra(NAME, name);
+                // 人员管理
+                Intent intent3 = new Intent(this, PersonManageActivity.class);
+                intent3.putExtra(NAME, "人员管理");
                 intent3.putExtra(POSITION, index);
                 startActivity(intent3);
                 break;
             case 3:
-                // 酒店广告
-                Intent intent4 = new Intent(this, ADSActivity.class);
-                intent4.putExtra(NAME, name);
+                // 公告管理
+                Intent intent4 = new Intent(this, ADSManageActivity.class);
+                intent4.putExtra(NAME, "公告管理");
                 intent4.putExtra(POSITION, index);
                 startActivity(intent4);
                 break;

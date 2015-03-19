@@ -7,7 +7,7 @@ import android.view.MenuItem;
 
 import com.grogshop.manage.R;
 
-public class DesktopStateActivity extends ActionBarActivity {
+public class PersonManageActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

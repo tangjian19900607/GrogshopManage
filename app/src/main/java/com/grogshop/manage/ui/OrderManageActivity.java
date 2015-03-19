@@ -7,7 +7,7 @@ import android.view.MenuItem;
 
 import com.grogshop.manage.R;
 
-public class OrderActivity extends ActionBarActivity {
+public class OrderManageActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

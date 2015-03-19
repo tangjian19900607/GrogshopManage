@@ -3,8 +3,6 @@ package com.grogshop.manage.ui;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -68,9 +66,9 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         String name = mDesktopAdapter.getData().get(position).getName();
         int index = mDesktopAdapter.getData().get(position).getPosition();
-        Intent intent = new Intent(MainActivity.this,DesktopActivity.class);
-        intent.putExtra(DesktopActivity.DESKTOP_NAME,name);
-        intent.putExtra(DesktopActivity.DESKTOP_POSITION,index);
+        Intent intent = new Intent(MainActivity.this,ChooseDishActivity.class);
+        intent.putExtra(ChooseDishActivity.DESKTOP_NAME,name);
+        intent.putExtra(ChooseDishActivity.DESKTOP_POSITION,index);
         startActivity(intent);
     }
 }
