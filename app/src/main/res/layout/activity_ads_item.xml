@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/ads_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@id/image"
+        android:textSize="18sp"
+        android:text="3.8特大优惠" />
+
+    <TextView
+        android:id="@+id/ads_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:textSize="12sp"
+        android:layout_alignBottom="@id/ads_title"
+        android:text="2015-03-20 11:19" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_below="@id/ads_title"
+        android:id="@+id/ads_content"
+        android:text="大甩卖，大甩卖了大甩卖，大甩卖了大甩卖，大甩卖了大甩卖，大甩卖了大甩卖，大甩卖了大甩卖，大甩卖了大甩卖，大甩卖了大甩卖，大甩卖了大甩卖" />
+</RelativeLayout>
