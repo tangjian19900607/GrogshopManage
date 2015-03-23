@@ -12,7 +12,10 @@ import android.widget.Toast;
 import com.grogshop.manage.R;
 import com.grogshop.manage.domain.User;
 
+import java.util.List;
+
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.GetListener;
 
 /**
@@ -50,13 +53,14 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
         mContentLoadingProgressBar.setVisibility(View.VISIBLE);
         final String username = mUserNameEditText.getText().toString().trim();
         final String password = mPasswordEditText.getText().toString().trim();
-        User user = new User("1", username, password);
         BmobQuery<User> userBmobQuery = new BmobQuery<User>();
-        userBmobQuery.getObject(this, "31d9e5d1a9", new GetListener<User>() {
+        userBmobQuery.addWhereEqualTo("userName", username);
+        userBmobQuery.addWhereEqualTo("password", password);
+        userBmobQuery.findObjects(this, new FindListener<User>() {
             @Override
-            public void onSuccess(User user) {
+            public void onSuccess(List<User> list) {
                 mContentLoadingProgressBar.setVisibility(View.GONE);
-                if ((null != user) && (user.getUserName().equals(username)) && user.getPassword().equals(password)) {
+                if (list.size() > 0) {
                     Intent intent = new Intent(LoginActivity.this, AdminMainActivity.class);
                     startActivity(intent);
                 } else {
@@ -65,9 +69,20 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
             }
 
             @Override
-            public void onFailure(int i, String s) {
+            public void onError(int i, String s) {
                 mContentLoadingProgressBar.setVisibility(View.GONE);
-                Toast.makeText(LoginActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, s, Toast.LENGTH_SHORT).show();
+            }
+        });
+        userBmobQuery.getObject(this, "31d9e5d1a9", new GetListener<User>() {
+            @Override
+            public void onSuccess(User user) {
+
+            }
+
+            @Override
+            public void onFailure(int i, String s) {
+
             }
         });
     }

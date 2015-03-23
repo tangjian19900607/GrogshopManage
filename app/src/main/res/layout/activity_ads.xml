@@ -1,10 +1,23 @@
-<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/ads_list_view"
-    android:listSelector="@android:color/transparent"
-    android:cacheColorHint="@android:color/transparent"
-    android:dividerHeight="5dp">
+    android:layout_height="match_parent">
 
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/ads_list_view"
+        android:listSelector="@android:color/transparent"
+        android:cacheColorHint="@android:color/transparent"
+        android:dividerHeight="5dp">
 
-</ListView>
+    </ListView>
+
+    <TextView
+        android:id="@+id/empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="暂无公告"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:textSize="24sp" />
+</RelativeLayout>

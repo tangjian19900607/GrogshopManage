@@ -31,7 +31,7 @@ public class ADSManageActivity extends ActionBarActivity {
         setContentView(R.layout.activity_ads);
         setTitle("公告管理");
         initViewId();
-        initData();
+//        initData();
     }
 
     private void initViewId() {
@@ -50,16 +50,23 @@ public class ADSManageActivity extends ActionBarActivity {
             public void onSuccess(List<Ads> list) {
                 mAdsAdapter = new AdsAdapter(ADSManageActivity.this, list);
                 mListView.setAdapter(mAdsAdapter);
+                mListView.setEmptyView(findViewById(R.id.empty_view));
                 mProgressDialog.dismiss();
             }
 
             @Override
             public void onError(int i, String s) {
                 mProgressDialog.dismiss();
-                Toast.makeText(ADSManageActivity.this, "获取公告数据出错", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ADSManageActivity.this, s, Toast.LENGTH_SHORT).show();
             }
         });
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initData();
     }
 
     @Override
