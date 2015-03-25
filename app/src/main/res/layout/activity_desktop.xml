@@ -2,7 +2,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.grogshop.manage.ui.ChooseDishActivity">
+    tools:context="com.grogshop.manage.ui.ShowDishActivity">
 
+    <ListView
+        android:id="@+id/dish_list_view"
+        android:layout_width="match_parent"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_height="match_parent"
+        android:cacheColorHint="@android:color/transparent"
+        android:listSelector="@android:color/transparent" />
 
 </RelativeLayout>

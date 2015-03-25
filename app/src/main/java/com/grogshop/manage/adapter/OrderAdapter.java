@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.grogshop.manage.domain.Dish;
+import com.grogshop.manage.R;
 import com.grogshop.manage.domain.Order;
 
 import java.util.List;
@@ -19,12 +19,12 @@ import java.util.List;
  * WeChat:ITnan562980080
  * 菜单适配器
  */
-public class DishAdapter extends BaseAdapter {
+public class OrderAdapter extends BaseAdapter {
 
     private LayoutInflater mLayoutInflater;
     private List<Order> mList;
 
-    public DishAdapter(Context context, List<Order> list) {
+    public OrderAdapter(Context context, List<Order> list) {
         this.mList = list;
         mLayoutInflater = LayoutInflater.from(context);
     }
@@ -49,15 +49,20 @@ public class DishAdapter extends BaseAdapter {
         ViewHolder viewHolder = null;
         if (null == convertView) {
             viewHolder = new ViewHolder();
-            // TODO
+            convertView = mLayoutInflater.inflate(R.layout.activity_order_item, null);
+            viewHolder.desktopNumber = (TextView) convertView.findViewById(R.id.desktop_number);
+            viewHolder.customerName = (TextView) convertView.findViewById(R.id.customer_name);
+            viewHolder.totalMoney = (TextView) convertView.findViewById(R.id.totoal_money);
+            viewHolder.watierName = (TextView) convertView.findViewById(R.id.watier_name);
+            viewHolder.time = (TextView) convertView.findViewById(R.id.time);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        viewHolder.desktopNumber.setText(mList.get(position).getDesktopNumber());
-        viewHolder.customerName.setText(mList.get(position).getOrderName());
-        viewHolder.totalMoney.setText(mList.get(position).getTotalMoney() + "");
-        viewHolder.watierName.setText(mList.get(position).getWatierName());
+        viewHolder.desktopNumber.setText("餐桌:"+mList.get(position).getDesktopNumber());
+        viewHolder.customerName.setText("顾客:"+mList.get(position).getOrderName());
+        viewHolder.totalMoney.setText("消费:"+mList.get(position).getTotalMoney() + "元");
+        viewHolder.watierName.setText("操作员:"+mList.get(position).getWatierName());
         viewHolder.time.setText(mList.get(position).getTime());
         return convertView;
     }

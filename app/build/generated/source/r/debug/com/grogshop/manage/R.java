@@ -1325,12 +1325,12 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f09002e;
         public static final int action_mode_bar_stub=0x7f09002d;
         public static final int action_mode_close_button=0x7f090020;
-        public static final int action_settings=0x7f09005d;
+        public static final int action_settings=0x7f090065;
         public static final int activity_chooser_view_content=0x7f090021;
-        public static final int add_ads=0x7f09005e;
-        public static final int add_person=0x7f09005c;
-        public static final int add_water=0x7f090060;
-        public static final int admin=0x7f09004d;
+        public static final int add_ads=0x7f090066;
+        public static final int add_person=0x7f090064;
+        public static final int add_water=0x7f090069;
+        public static final int admin=0x7f090051;
         public static final int ads_content=0x7f090040;
         public static final int ads_list_view=0x7f090046;
         public static final int ads_time=0x7f090048;
@@ -1338,20 +1338,27 @@ containing a value of this type.
         public static final int always=0x7f090016;
         public static final int beginning=0x7f090013;
         public static final int checkbox=0x7f090029;
+        public static final int choose_dish=0x7f090068;
         public static final int collapseActionView=0x7f090017;
-        public static final int customer=0x7f09004e;
+        public static final int customer=0x7f090052;
+        public static final int customer_name=0x7f090057;
         public static final int decor_content_parent=0x7f09002f;
         public static final int default_activity_button=0x7f090024;
-        public static final int desktop=0x7f090050;
+        public static final int desktop=0x7f090054;
+        public static final int desktop_number=0x7f090056;
         public static final int dialog=0x7f09001b;
         public static final int disableHome=0x7f09000c;
+        public static final int dish_image=0x7f09004a;
+        public static final int dish_jieshao=0x7f09004b;
+        public static final int dish_list_view=0x7f09004c;
+        public static final int dish_name=0x7f090049;
         public static final int dropdown=0x7f09001c;
         public static final int edit_query=0x7f090033;
         public static final int empty_view=0x7f090047;
         public static final int end=0x7f090014;
         public static final int expand_activities_button=0x7f090022;
         public static final int expanded_menu=0x7f090028;
-        public static final int grid_desktop=0x7f09004f;
+        public static final int grid_desktop=0x7f090053;
         public static final int grid_view=0x7f090045;
         public static final int home=0x7f090004;
         public static final int homeAsUp=0x7f09000d;
@@ -1360,17 +1367,18 @@ containing a value of this type.
         public static final int image=0x7f090023;
         public static final int listMode=0x7f090009;
         public static final int list_item=0x7f090025;
-        public static final int login=0x7f09004b;
+        public static final int login=0x7f09004f;
         public static final int middle=0x7f090015;
-        public static final int name=0x7f090053;
+        public static final int name=0x7f09005c;
         public static final int never=0x7f090019;
         public static final int none=0x7f09000e;
         public static final int normal=0x7f09000a;
-        public static final int password=0x7f09004a;
-        public static final int person_listview=0x7f090051;
+        public static final int order_list=0x7f090055;
+        public static final int password=0x7f09004e;
+        public static final int person_listview=0x7f09005a;
         public static final int progress_circular=0x7f090005;
         public static final int progress_horizontal=0x7f090006;
-        public static final int progressbar=0x7f09004c;
+        public static final int progressbar=0x7f090050;
         public static final int publish=0x7f090041;
         public static final int radio=0x7f09002b;
         public static final int search_badge=0x7f090035;
@@ -1392,23 +1400,24 @@ containing a value of this type.
         public static final int tabMode=0x7f09000b;
         public static final int take_photo=0x7f090042;
         public static final int text=0x7f090044;
-        public static final int time=0x7f090054;
+        public static final int time=0x7f09005d;
         public static final int title=0x7f090027;
-        public static final int type=0x7f090052;
+        public static final int totoal_money=0x7f090058;
+        public static final int type=0x7f09005b;
         public static final int up=0x7f090008;
         public static final int upload=0x7f090043;
         public static final int useLogo=0x7f090012;
-        public static final int username=0x7f090049;
-        public static final int watier_add=0x7f09005f;
-        public static final int watier_name=0x7f090057;
-        public static final int watier_name_text=0x7f090056;
-        public static final int watier_spinner=0x7f090059;
-        public static final int watier_type_text=0x7f090058;
-        public static final int watier_zhize=0x7f09005b;
-        public static final int watier_zhize_text=0x7f09005a;
+        public static final int username=0x7f09004d;
+        public static final int watier_add=0x7f090067;
+        public static final int watier_name=0x7f090059;
+        public static final int watier_name_text=0x7f09005f;
+        public static final int watier_spinner=0x7f090061;
+        public static final int watier_type_text=0x7f090060;
+        public static final int watier_zhize=0x7f090063;
+        public static final int watier_zhize_text=0x7f090062;
         public static final int withText=0x7f09001a;
         public static final int wrap_content=0x7f09001d;
-        public static final int zhize=0x7f090055;
+        public static final int zhize=0x7f09005e;
     }
     public static final class integer {
         public static final int abc_max_action_buttons=0x7f0a0000;
@@ -1444,16 +1453,19 @@ containing a value of this type.
         public static final int activity_admin_main=0x7f04001b;
         public static final int activity_ads=0x7f04001c;
         public static final int activity_ads_item=0x7f04001d;
-        public static final int activity_desktop=0x7f04001e;
-        public static final int activity_login=0x7f04001f;
-        public static final int activity_lunch=0x7f040020;
-        public static final int activity_main=0x7f040021;
-        public static final int activity_main_item=0x7f040022;
-        public static final int activity_order=0x7f040023;
-        public static final int activity_person=0x7f040024;
-        public static final int activity_person_watier_item=0x7f040025;
-        public static final int activity_waiter_add=0x7f040026;
-        public static final int support_simple_spinner_dropdown_item=0x7f040027;
+        public static final int activity_choose_item=0x7f04001e;
+        public static final int activity_desktop=0x7f04001f;
+        public static final int activity_login=0x7f040020;
+        public static final int activity_lunch=0x7f040021;
+        public static final int activity_main=0x7f040022;
+        public static final int activity_main_item=0x7f040023;
+        public static final int activity_order=0x7f040024;
+        public static final int activity_order_dish=0x7f040025;
+        public static final int activity_order_item=0x7f040026;
+        public static final int activity_person=0x7f040027;
+        public static final int activity_person_watier_item=0x7f040028;
+        public static final int activity_waiter_add=0x7f040029;
+        public static final int support_simple_spinner_dropdown_item=0x7f04002a;
     }
     public static final class menu {
         public static final int menu_about=0x7f0d0000;
@@ -1466,8 +1478,10 @@ containing a value of this type.
         public static final int menu_lunch=0x7f0d0007;
         public static final int menu_main=0x7f0d0008;
         public static final int menu_order=0x7f0d0009;
-        public static final int menu_person=0x7f0d000a;
-        public static final int menu_waiter_add=0x7f0d000b;
+        public static final int menu_order_dish=0x7f0d000a;
+        public static final int menu_person=0x7f0d000b;
+        public static final int menu_show_dish=0x7f0d000c;
+        public static final int menu_waiter_add=0x7f0d000d;
     }
     public static final class mipmap {
         public static final int ic_launcher=0x7f030000;
@@ -1502,7 +1516,8 @@ containing a value of this type.
         public static final int title_activity_login=0x7f0b001a;
         public static final int title_activity_lunch=0x7f0b001b;
         public static final int title_activity_order=0x7f0b001c;
-        public static final int title_activity_waiter_add=0x7f0b001d;
+        public static final int title_activity_order_dish=0x7f0b001d;
+        public static final int title_activity_waiter_add=0x7f0b001e;
     }
     public static final class style {
         /**  Customize your theme here. 

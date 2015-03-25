@@ -14,4 +14,5 @@
     <string name="title_activity_desktop_state">DesktopStateActivity</string>
     <string name="title_activity_add_ads">AddADSActivity</string>
     <string name="title_activity_waiter_add">添加服务员</string>
+    <string name="title_activity_order_dish">点菜</string>
 </resources>

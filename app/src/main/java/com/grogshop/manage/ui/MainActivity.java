@@ -66,9 +66,9 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         String name = mDesktopAdapter.getData().get(position).getName();
         int index = mDesktopAdapter.getData().get(position).getPosition();
-        Intent intent = new Intent(MainActivity.this,ChooseDishActivity.class);
-        intent.putExtra(ChooseDishActivity.DESKTOP_NAME,name);
-        intent.putExtra(ChooseDishActivity.DESKTOP_POSITION,index);
+        Intent intent = new Intent(MainActivity.this,ShowDishActivity.class);
+        intent.putExtra(ShowDishActivity.DESKTOP_NAME,name);
+        intent.putExtra(ShowDishActivity.DESKTOP_POSITION,index);
         startActivity(intent);
     }
 }

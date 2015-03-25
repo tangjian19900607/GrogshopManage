@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/dish_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:textSize="24sp"
+        android:text="菜名:酸辣土豆丝" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="价格:8元"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@id/dish_name" />
+
+    <ImageView
+        android:id="@+id/dish_image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@color/purple_normal"
+        android:layout_below="@id/dish_name" />
+
+    <TextView
+        android:id="@+id/dish_jieshao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_toRightOf="@id/dish_image"
+        android:text="酸辣土豆丝可谓是人见人爱的一道家常菜，虽然价格便宜但是酸辣可口味道味道却是大家喜爱的。无论是家庭餐桌、还是饭馆酒店几乎都能见到它的身影，虽然酸辣土豆丝是一道普通的菜肴，但是能够做好也是不容易的，如何才能保持土豆丝熟而脆爽是关键，这个和土豆的选择、土豆丝的处理、炒制时的时间火候的把握有密切的关系"
+        android:layout_alignTop="@id/dish_image"
+        android:layout_alignBottom="@id/dish_image" />
+</RelativeLayout>

@@ -192,6 +192,7 @@
     <string name="title_activity_login">登录</string>
     <string name="title_activity_lunch">酒店点菜</string>
     <string name="title_activity_order">OrderActivity</string>
+    <string name="title_activity_order_dish">点菜</string>
     <string name="title_activity_waiter_add">添加服务员</string>
     <!-- From: file:/Users/tangjian/androidExample/android-play-location/GrogshopManage/app/src/main/res/values/styles.xml -->
     <eat-comment/>

@@ -65,7 +65,7 @@
             android:label="@string/title_activity_admin_main" />
         <!-- 选菜界面 -->
         <activity
-            android:name="com.grogshop.manage.ui.ChooseDishActivity"
+            android:name="com.grogshop.manage.ui.ShowDishActivity"
             android:label="@string/title_activity_desktop"
             android:parentActivityName="com.grogshop.manage.ui.MainActivity" >
             <meta-data
@@ -125,6 +125,15 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.grogshop.manage.ui.PersonManageActivity" />
+        </activity>
+        <!-- 点菜 -->
+        <activity
+            android:name="com.grogshop.manage.ui.OrderDishActivity"
+            android:label="@string/title_activity_order_dish"
+            android:parentActivityName="com.grogshop.manage.ui.ShowDishActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.grogshop.manage.ui.ShowDishActivity" />
         </activity>
     </application>
 

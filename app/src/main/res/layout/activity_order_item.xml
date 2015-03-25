@@ -3,4 +3,53 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/desktop_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:textSize="18sp"
+        android:text="餐桌:001"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:id="@+id/customer_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:textSize="18sp"
+        android:padding="5dp"
+        android:layout_alignTop="@id/desktop_number"
+        android:layout_alignBottom="@id/desktop_number"
+        android:text="顾客:王静" />
+
+    <TextView
+        android:id="@+id/totoal_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:textSize="18sp"
+        android:text="金额:800元"
+        android:layout_below="@id/desktop_number"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:id="@+id/watier_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:textSize="18sp"
+        android:padding="5dp"
+        android:layout_alignTop="@id/totoal_money"
+        android:layout_alignBottom="@id/totoal_money"
+        android:text="操作员:李婷" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:textSize="18sp"
+        android:text="2015-03-25 3:00"
+        android:layout_below="@id/totoal_money"
+        android:layout_alignParentRight="true" />
 </RelativeLayout>
