@@ -10,7 +10,7 @@ import cn.bmob.v3.BmobObject;
  * QQ:562980080
  * WeChat:ITnan562980080
  */
-public class Ads extends BmobObject implements Serializable {
+public class Ads extends BmobObject {
     private String title;
     private String content;
     private String time;

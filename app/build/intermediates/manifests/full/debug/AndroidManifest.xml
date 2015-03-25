@@ -108,6 +108,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.grogshop.manage.ui.AdminMainActivity" />
         </activity>
+        <!-- 公告发布界面 -->
         <activity
             android:name="com.grogshop.manage.ui.AddADSActivity"
             android:label="@string/title_activity_add_ads"
@@ -115,6 +116,15 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.grogshop.manage.ui.ADSManageActivity" />
+        </activity>
+        <!-- 添加服务员界面 -->
+        <activity
+            android:name="com.grogshop.manage.ui.WaiterAddActivity"
+            android:label="@string/title_activity_waiter_add"
+            android:parentActivityName="com.grogshop.manage.ui.PersonManageActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.grogshop.manage.ui.PersonManageActivity" />
         </activity>
     </application>
 

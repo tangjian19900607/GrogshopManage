@@ -1,7 +1,5 @@
 package com.grogshop.manage.domain;
 
-import java.io.Serializable;
-
 import cn.bmob.v3.BmobObject;
 
 /**
@@ -11,7 +9,7 @@ import cn.bmob.v3.BmobObject;
  * WeChat:ITnan562980080
  * 菜品的实体
  */
-public class Dish  extends BmobObject implements Serializable {
+public class Dish extends BmobObject {
     /**
      * 菜的名称
      */

@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.grogshop.manage.ui.WaiterAddActivity"
+    android:padding="5dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="姓名:"
+        android:padding="10dp"
+        android:textSize="18sp"
+        android:id="@+id/watier_name_text"
+        android:layout_alignParentLeft="true" />
+
+    <EditText
+        android:id="@+id/watier_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/watier_name_text"
+        android:textSize="18sp"
+        android:layout_alignBottom="@id/watier_name_text"
+        android:layout_alignTop="@id/watier_name_text" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:text="类型:"
+        android:layout_marginTop="10dp"
+        android:id="@+id/watier_type_text"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/watier_name_text" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/watier_spinner"
+        android:layout_marginLeft="10dp"
+        android:layout_alignTop="@id/watier_type_text"
+        android:layout_alignBottom="@id/watier_type_text"
+        android:layout_toRightOf="@id/watier_type_text" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:text="职责:"
+        android:layout_marginTop="10dp"
+        android:id="@+id/watier_zhize_text"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/watier_type_text" />
+
+    <EditText
+        android:id="@+id/watier_zhize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/watier_zhize_text"
+        android:textSize="18sp"
+        android:gravity="left"
+        android:layout_alignTop="@id/watier_zhize_text" />
+
+    <Button
+        android:id="@+id/add_person"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="添加"
+        android:textColor="@android:color/white"
+        android:background="@drawable/button_bg"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>

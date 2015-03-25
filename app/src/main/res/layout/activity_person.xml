@@ -1,21 +1,24 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.grogshop.manage.ui.OrderManageActivity">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ListView
-        android:id="@+id/order_list"
+        android:id="@+id/person_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="5dp"
         android:cacheColorHint="@android:color/transparent"
-        android:listSelector="@android:color/transparent" />
-
+        android:listSelector="@android:color/transparent"
+        android:dividerHeight="5dp" />
     <TextView
         android:id="@+id/empty_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:gravity="center"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:layout_centerInParent="true"
+        android:text="暂无人员"/>
+
 </RelativeLayout>
+

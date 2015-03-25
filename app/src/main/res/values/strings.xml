@@ -13,4 +13,5 @@
     <string name="title_activity_ads">ADSActivity</string>
     <string name="title_activity_desktop_state">DesktopStateActivity</string>
     <string name="title_activity_add_ads">AddADSActivity</string>
+    <string name="title_activity_waiter_add">添加服务员</string>
 </resources>

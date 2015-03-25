@@ -11,7 +11,7 @@ import cn.bmob.v3.BmobObject;
  * WeChat:ITnan562980080
  * 用户实体
  */
-public class User extends BmobObject implements Serializable {
+public class User extends BmobObject  {
 
     /**
      * 用户类型

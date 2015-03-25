@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.grogshop.manage" >
+    package="com.grogshop.manage">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -19,13 +19,13 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
 
         <!-- 登录界面 -->
         <activity
             android:name=".ui.LoginActivity"
             android:label="@string/title_activity_login"
-            android:parentActivityName=".ui.LunchActivity" >
+            android:parentActivityName=".ui.LunchActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.grogshop.manage.ui.LunchActivity" />
@@ -37,7 +37,7 @@
         <!-- 启动界面 -->
         <activity
             android:name=".ui.LunchActivity"
-            android:label="@string/title_activity_lunch" >
+            android:label="@string/title_activity_lunch">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -48,7 +48,7 @@
         <activity
             android:name=".ui.AboutActivity"
             android:label="@string/title_activity_about"
-            android:parentActivityName=".ui.MainActivity" >
+            android:parentActivityName=".ui.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.grogshop.manage.ui.MainActivity" />
@@ -61,7 +61,7 @@
         <activity
             android:name=".ui.ChooseDishActivity"
             android:label="@string/title_activity_desktop"
-            android:parentActivityName=".ui.MainActivity" >
+            android:parentActivityName=".ui.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.grogshop.manage.ui.MainActivity" />
@@ -70,7 +70,7 @@
         <activity
             android:name=".ui.DishManageActivity"
             android:label="@string/title_activity_add_dish"
-            android:parentActivityName=".ui.AdminMainActivity" >
+            android:parentActivityName=".ui.AdminMainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.grogshop.manage.ui.AdminMainActivity" />
@@ -79,7 +79,7 @@
         <activity
             android:name=".ui.OrderManageActivity"
             android:label="@string/title_activity_order"
-            android:parentActivityName=".ui.AdminMainActivity" >
+            android:parentActivityName=".ui.AdminMainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.grogshop.manage.ui.AdminMainActivity" />
@@ -88,7 +88,7 @@
         <activity
             android:name=".ui.ADSManageActivity"
             android:label="@string/title_activity_ads"
-            android:parentActivityName=".ui.AdminMainActivity" >
+            android:parentActivityName=".ui.AdminMainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.grogshop.manage.ui.AdminMainActivity" />
@@ -97,18 +97,28 @@
         <activity
             android:name=".ui.PersonManageActivity"
             android:label="@string/title_activity_desktop_state"
-            android:parentActivityName=".ui.AdminMainActivity" >
+            android:parentActivityName=".ui.AdminMainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.grogshop.manage.ui.AdminMainActivity" />
         </activity>
+        <!-- 公告发布界面 -->
         <activity
             android:name=".ui.AddADSActivity"
             android:label="@string/title_activity_add_ads"
-            android:parentActivityName=".ui.ADSManageActivity" >
+            android:parentActivityName=".ui.ADSManageActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.grogshop.manage.ui.ADSManageActivity" />
+        </activity>
+        <!-- 添加服务员界面 -->
+        <activity
+            android:name=".ui.WaiterAddActivity"
+            android:label="@string/title_activity_waiter_add"
+            android:parentActivityName=".ui.PersonManageActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.grogshop.manage.ui.PersonManageActivity" />
         </activity>
     </application>
 

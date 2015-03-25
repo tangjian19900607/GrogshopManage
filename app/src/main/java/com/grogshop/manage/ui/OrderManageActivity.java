@@ -1,41 +1,45 @@
 package com.grogshop.manage.ui;
 
+import android.app.ProgressDialog;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
 import com.grogshop.manage.R;
 
+/**
+ * 订单管理界面
+ */
 public class OrderManageActivity extends ActionBarActivity {
+
+    private ListView mOrderListView;
+    private ProgressDialog mProgressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
-        String name = getIntent().getStringExtra(AdminMainActivity.NAME);
-        setTitle(name);
+        setTitle("订单管理");
+        initViewId();
+        initProgressDialog();
+        initData();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_order, menu);
-        return true;
+
+    private void initViewId() {
+        mOrderListView = (ListView) this.findViewById(R.id.order_list);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    private void initData() {
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
+
+    private void initProgressDialog() {
+        mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setTitle("提示");
+        mProgressDialog.setMessage("正在获取订单");
+    }
+
 }

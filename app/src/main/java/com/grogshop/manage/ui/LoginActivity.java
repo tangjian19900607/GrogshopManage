@@ -59,30 +59,22 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
         userBmobQuery.findObjects(this, new FindListener<User>() {
             @Override
             public void onSuccess(List<User> list) {
+                // TODO 将要修改
                 mContentLoadingProgressBar.setVisibility(View.GONE);
-                if (list.size() > 0) {
-                    Intent intent = new Intent(LoginActivity.this, AdminMainActivity.class);
-                    startActivity(intent);
-                } else {
-                    Toast.makeText(LoginActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
-                }
+                Intent intent = new Intent(LoginActivity.this, AdminMainActivity.class);
+                startActivity(intent);
+//                if (list.size() > 0) {
+//                    Intent intent = new Intent(LoginActivity.this, AdminMainActivity.class);
+//                    startActivity(intent);
+//                } else {
+//                    Toast.makeText(LoginActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
+//                }
             }
 
             @Override
             public void onError(int i, String s) {
                 mContentLoadingProgressBar.setVisibility(View.GONE);
                 Toast.makeText(LoginActivity.this, s, Toast.LENGTH_SHORT).show();
-            }
-        });
-        userBmobQuery.getObject(this, "31d9e5d1a9", new GetListener<User>() {
-            @Override
-            public void onSuccess(User user) {
-
-            }
-
-            @Override
-            public void onFailure(int i, String s) {
-
             }
         });
     }
