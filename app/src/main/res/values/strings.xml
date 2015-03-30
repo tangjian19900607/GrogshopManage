@@ -15,4 +15,13 @@
     <string name="title_activity_add_ads">AddADSActivity</string>
     <string name="title_activity_waiter_add">添加服务员</string>
     <string name="title_activity_order_dish">点菜</string>
+    <string name="spin_prompt"> 请选择城市 </ string>
+    <string name="dish_type_prompt">选择菜品类型</string>
+    < string-array name="dish_type">
+        < item> 凉菜 </ item>
+        < item> 小炒 </ item>
+        < item> 干锅 </ item>
+        < item> 汤类 </ item>
+    </ string-array>
+
 </resources>

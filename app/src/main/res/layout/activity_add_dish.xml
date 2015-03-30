@@ -5,7 +5,7 @@
     tools:context="com.grogshop.manage.ui.DishManageActivity"
     android:padding="10dp">
 
-    <Button
+   <!-- <Button
         android:id="@+id/take_photo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,5 +27,111 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/upload"
-        android:background="@color/button_bg_normal"/>
+        android:background="@color/button_bg_normal"/>-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="菜品名称:"
+        android:padding="10dp"
+        android:textSize="18sp"
+        android:id="@+id/dish_name_text"
+        android:layout_alignParentLeft="true" />
+
+    <EditText
+        android:id="@+id/dish_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/dish_name_text"
+        android:textSize="18sp"
+        android:layout_alignBottom="@id/dish_name_text"
+        android:layout_alignTop="@id/dish_name_text" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="菜品单价:"
+        android:padding="10dp"
+        android:textSize="18sp"
+        android:id="@+id/dish_price_text"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/dish_name_text"/>
+
+    <EditText
+        android:id="@+id/dish_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/dish_price_text"
+        android:textSize="18sp"
+        android:inputType="number"
+        android:layout_alignBottom="@id/dish_price_text"
+        android:layout_alignTop="@id/dish_price_text" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="菜品介绍:"
+        android:padding="10dp"
+        android:textSize="18sp"
+        android:id="@+id/dish_info_text"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/dish_price_text"/>
+
+    <EditText
+        android:id="@+id/dish_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/dish_info_text"
+        android:textSize="18sp"
+        android:minLines="3"
+        android:layout_alignBottom="@id/dish_info_text"
+        android:layout_alignTop="@id/dish_info_text" />
+   <!-- <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:text="菜品类型:"
+        android:layout_marginTop="10dp"
+        android:id="@+id/dish_type_text"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/dish_name_text" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/dish_spinner"
+        android:layout_marginLeft="10dp"
+        android:layout_alignTop="@id/dish_type_text"
+        android:layout_alignBottom="@id/dish_type_text"
+        android:layout_toRightOf="@id/dish_type_text"
+        android:entries="@array/dish_type"
+        android:prompt="@string/dish_type_prompt"/>-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:text="菜品展示:"
+        android:layout_marginTop="10dp"
+        android:id="@+id/dish_image_text"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/dish_info_text" />
+
+    <ImageView
+        android:id="@+id/dish_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/dish_image_text"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/add_picture"
+        android:layout_marginLeft="10dp"/>
+
+    <Button
+        android:id="@+id/add_dish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="添加"
+        android:textColor="@android:color/white"
+        android:background="@drawable/button_bg"
+        android:layout_alignParentBottom="true" />
 </RelativeLayout>
