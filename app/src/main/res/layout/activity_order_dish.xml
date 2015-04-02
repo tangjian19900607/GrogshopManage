@@ -2,11 +2,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.grogshop.manage.ui.OrderDishActivity">
-
+    tools:context="com.grogshop.manage.ui.OrderDishActivity"
+    android:padding="10dp">
+    <ListView
+        android:id="@+id/dish_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        android:cacheColorHint="@android:color/transparent"
+        android:listSelector="@android:color/transparent"
+        android:dividerHeight="5dp" />
     <TextView
-        android:text="@string/hello_world"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:id="@+id/dish_empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:layout_centerInParent="true"
+        android:text="当前菜单为空，请联系管理员"/>
+    <Button
+        android:id="@+id/order_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="确认点菜"
+        android:textColor="@android:color/white"
+        android:background="@drawable/button_bg"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"/>
 
 </RelativeLayout>

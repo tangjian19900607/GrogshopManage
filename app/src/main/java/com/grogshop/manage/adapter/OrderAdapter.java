@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.grogshop.manage.R;
+import com.grogshop.manage.domain.Dish;
 import com.grogshop.manage.domain.Order;
 
 import java.util.List;
@@ -43,6 +44,9 @@ public class OrderAdapter extends BaseAdapter {
     public long getItemId(int position) {
         return position;
     }
+    public List<Order> getData() {
+        return this.mList;
+    }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -54,7 +58,7 @@ public class OrderAdapter extends BaseAdapter {
             viewHolder.customerName = (TextView) convertView.findViewById(R.id.customer_name);
             viewHolder.totalMoney = (TextView) convertView.findViewById(R.id.totoal_money);
             viewHolder.watierName = (TextView) convertView.findViewById(R.id.watier_name);
-            viewHolder.time = (TextView) convertView.findViewById(R.id.time);
+            viewHolder.time = (TextView) convertView.findViewById(R.id.order_time);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();

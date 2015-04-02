@@ -1,122 +1,87 @@
 package com.grogshop.manage.ui;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.grogshop.manage.R;
+import com.grogshop.manage.adapter.DishAdapter;
+import com.grogshop.manage.domain.Dish;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.util.List;
 
-import cn.bmob.v3.datatype.BmobFile;
-import cn.bmob.v3.listener.UploadFileListener;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.listener.DeleteListener;
+import cn.bmob.v3.listener.FindListener;
 
-public class DishManageActivity extends ActionBarActivity implements View.OnClickListener {
-
-    public static final int CAPTURE_IMAGE = 1;
-    private Button mTakePhotoButton;
-    private Button mUploadButton;
-    private ImageView mImageView;
-    private String mCurrentPhotoPath;
-    ;
+public class DishManageActivity extends ActionBarActivity {
+    private ListView mDishListView;
+    private ProgressDialog mProgressDialog;
+    private String mActivityName;
+    DishAdapter mDishAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_dish);
-        String name = getIntent().getStringExtra(AdminMainActivity.NAME);
-        setTitle(name);
+        setContentView(R.layout.activity_dish);
+        mActivityName = getIntent().getStringExtra(AdminMainActivity.NAME);
+        setTitle(mActivityName);
+        initImageLoader();
         initViewId();
-        setListener();
+        initProgressDialog();
+        initData();
+        registerForContextMenu(mDishListView);
     }
 
-    private void initViewId() {
-        mTakePhotoButton = (Button) this.findViewById(R.id.take_photo);
-        mUploadButton = (Button) this.findViewById(R.id.upload);
-        mImageView = (ImageView) this.findViewById(R.id.image);
+    private void initImageLoader() {
+        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext()).build();
+        ImageLoader.getInstance().init(config);
     }
 
-    private void setListener() {
-        mTakePhotoButton.setOnClickListener(this);
-        mUploadButton.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.upload:
-                uploadImage();
-                break;
-            case R.id.take_photo:
-                takePhoto();
-                break;
-            default:
-                break;
-        }
-    }
-
-    private void uploadImage() {
-        File file = new File(mCurrentPhotoPath);
-        BmobFile bmobFile = new BmobFile(file);
-        bmobFile.uploadblock(this, new UploadFileListener() {
+    private void initData() {
+        mProgressDialog.show();
+        BmobQuery<Dish> bmobQuery = new BmobQuery<Dish>();
+        bmobQuery.order("-createdAt");
+        bmobQuery.findObjects(DishManageActivity.this,new FindListener<Dish>() {
             @Override
-            public void onSuccess() {
-                Toast.makeText(DishManageActivity.this, "Success", Toast.LENGTH_LONG).show();
+            public void onSuccess(List<Dish> dishs) {
+                mProgressDialog.dismiss();
+                mDishAdapter = new DishAdapter(DishManageActivity.this,dishs,mDishListView);
+                mDishListView.setAdapter(mDishAdapter);
             }
 
             @Override
-            public void onFailure(int i, String s) {
-                Toast.makeText(DishManageActivity.this, "Failure", Toast.LENGTH_LONG).show();
+            public void onError(int i, String s) {
+                mProgressDialog.dismiss();
+                Toast.makeText(DishManageActivity.this, "加载菜品失败："+s, Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    private void takePhoto() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(takePictureIntent, CAPTURE_IMAGE);
-        }
+    private void initViewId() {
+        mDishListView = (ListView) findViewById(R.id.dish_listview);
+        mDishListView.setEmptyView(findViewById(R.id.dish_empty_view));
+    }
+    private void initProgressDialog() {
+        mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setTitle("提示");
+        mProgressDialog.setMessage("正在获取数据");
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if ((requestCode == CAPTURE_IMAGE) && (resultCode == RESULT_OK)) {
-            Bundle bundle = data.getExtras();
-            Bitmap bitmap = (Bitmap) bundle.get("data");// 获取相机返回的数据，并转换为Bitmap图片格式
-            mImageView.setImageBitmap(bitmap);
-            FileOutputStream b = null;
-            File file = new File("/sdcard/myImage/");
-            if (!file.exists()) {
-                file.mkdirs();// 创建文件夹
-            }
-            mCurrentPhotoPath = getCacheDir()+"aa.png";
-            try {
-                b = new FileOutputStream(mCurrentPhotoPath);
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, b);// 把数据写入文件
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } finally {
-                try {
-                    b.flush();
-                    b.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
 
-        }
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -133,5 +98,63 @@ public class DishManageActivity extends ActionBarActivity implements View.OnClic
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        menu.setHeaderTitle(mActivityName);
+        getMenuInflater().inflate(R.menu.context_menu, menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        final AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item
+                .getMenuInfo();
+        final List<Dish> list = mDishAdapter.getData();
+        switch(item.getItemId()) {
+            case R.id.menu_item_delete:
+                new AlertDialog.Builder(this)
+                        .setTitle(R.string.delete)
+                        .setMessage(R.string.delete_dialog_message)
+                        .setIcon(android.R.drawable.ic_delete)
+                        .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Dish dish = list.get(info.position);
+                                mDishAdapter.getData().remove(dish);
+                                dish.delete(DishManageActivity.this,new DeleteListener() {
+                                    @Override
+                                    public void onSuccess() {
+                                        Toast.makeText(DishManageActivity.this,"删除成功",Toast.LENGTH_LONG).show();
+                                        mDishAdapter.notifyDataSetChanged();
+                                    }
+
+                                    @Override
+                                    public void onFailure(int i, String s) {
+                                        Toast.makeText(DishManageActivity.this,"删除失败："+s,Toast.LENGTH_LONG).show();
+                                    }
+                                });
+                              dialog.dismiss();
+                            }
+                        })
+                        .setNegativeButton(R.string.cancle, new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        }).show();
+
+                break;
+            default:
+                return super.onContextItemSelected(item);
+        }
+        return true;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initData();
     }
 }

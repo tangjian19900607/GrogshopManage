@@ -8,8 +8,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:text="餐桌:001"
+        android:textColor="@color/orange_normal"
         android:layout_alignParentLeft="true" />
 
     <TextView
@@ -19,7 +20,6 @@
         android:layout_alignParentRight="true"
         android:textSize="18sp"
         android:padding="5dp"
-        android:layout_alignTop="@id/desktop_number"
         android:layout_alignBottom="@id/desktop_number"
         android:text="顾客:王静" />
 
@@ -45,11 +45,13 @@
         android:text="操作员:李婷" />
 
     <TextView
+        android:id="@+id/order_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:text="2015-03-25 3:00"
+        android:textColor="@color/button_bg_normal"
         android:layout_below="@id/totoal_money"
         android:layout_alignParentRight="true" />
 </RelativeLayout>

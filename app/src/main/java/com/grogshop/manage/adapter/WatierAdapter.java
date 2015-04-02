@@ -27,7 +27,14 @@ public class WatierAdapter extends BaseAdapter {
         mList = list;
         mLayoutInflater = LayoutInflater.from(context);
     }
+    public List<Waiter> getData() {
+        return this.mList;
+    }
 
+    public void setData(List<Waiter> list) {
+        this.mList = list;
+        notifyDataSetChanged();
+    }
     @Override
     public int getCount() {
         return null == mList ? 0 : mList.size();

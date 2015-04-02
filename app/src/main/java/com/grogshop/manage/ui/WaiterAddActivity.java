@@ -84,6 +84,7 @@ public class WaiterAddActivity extends ActionBarActivity implements AdapterView.
                 Toast.makeText(WaiterAddActivity.this, s, Toast.LENGTH_SHORT).show();
             }
         });
+        finish();
     }
 
     @Override

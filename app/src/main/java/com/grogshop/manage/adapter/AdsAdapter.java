@@ -26,7 +26,13 @@ public class AdsAdapter extends BaseAdapter {
         mLayoutInflater = LayoutInflater.from(context);
         mList = list;
     }
-
+public List<Ads> getData(){
+    return this.mList;
+}
+    public void setData(List<Ads> list){
+        this.mList = list;
+        notifyDataSetChanged();
+    }
     @Override
     public int getCount() {
         return null == mList ? 0 : mList.size();

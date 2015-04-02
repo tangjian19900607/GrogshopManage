@@ -2,7 +2,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.grogshop.manage.ui.ShowDishActivity">
+    tools:context="com.grogshop.manage.ui.ShowDishActivity"
+    android:padding="10dp">
+
+    <Button
+        android:id="@+id/pay_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="支付订单"
+        android:textColor="@android:color/white"
+        android:background="@drawable/button_bg"
+        android:layout_alignParentBottom="true" />
+
+    <TextView
+        android:id="@+id/dish_empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:layout_centerInParent="true"
+        android:text="您的菜单为空，请点菜" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100元"
+        android:padding="10dp"
+        android:textSize="22sp"
+        android:textColor="@color/orange_normal"
+        android:id="@+id/order_price"
+        android:layout_alignParentRight="true"
+        android:layout_above="@id/pay_button" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="总计金额："
+        android:padding="10dp"
+        android:textSize="22sp"
+        android:textColor="@color/button_bg_normal"
+        android:id="@+id/order_price_text"
+        android:layout_toLeftOf="@id/order_price"
+        android:layout_alignTop="@id/order_price"
+        android:layout_alignBottom="@id/order_price" />
 
     <ListView
         android:id="@+id/dish_list_view"
@@ -11,6 +54,9 @@
         android:paddingRight="5dp"
         android:layout_height="match_parent"
         android:cacheColorHint="@android:color/transparent"
-        android:listSelector="@android:color/transparent" />
+        android:listSelector="@android:color/transparent"
+        android:layout_above="@id/order_price_text" />
+
+
 
 </RelativeLayout>

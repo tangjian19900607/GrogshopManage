@@ -10,7 +10,7 @@
         android:padding="5dp"
         android:cacheColorHint="@android:color/transparent"
         android:listSelector="@android:color/transparent"
-        android:dividerHeight="5dp" />
+        />
     <TextView
         android:id="@+id/empty_view"
         android:layout_width="match_parent"

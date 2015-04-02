@@ -1,21 +1,28 @@
 package com.grogshop.manage.ui;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.grogshop.manage.R;
 import com.grogshop.manage.adapter.AdsAdapter;
 import com.grogshop.manage.domain.Ads;
+import com.grogshop.manage.domain.Dish;
 
 import java.util.List;
 
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.listener.DeleteListener;
 import cn.bmob.v3.listener.FindListener;
 
 import static com.grogshop.manage.R.id.ads_list_view;
@@ -31,6 +38,7 @@ public class ADSManageActivity extends ActionBarActivity {
         setContentView(R.layout.activity_ads);
         setTitle("公告管理");
         initViewId();
+        registerForContextMenu(mListView);
 //        initData();
     }
 
@@ -91,5 +99,56 @@ public class ADSManageActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        menu.setHeaderTitle("公告管理");
+        getMenuInflater().inflate(R.menu.context_menu, menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        final AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item
+                .getMenuInfo();
+        final List<Ads> list = mAdsAdapter.getData();
+        switch(item.getItemId()) {
+            case R.id.menu_item_delete:
+                new AlertDialog.Builder(this)
+                        .setTitle(R.string.delete)
+                        .setMessage(R.string.delete_dialog_message)
+                        .setIcon(android.R.drawable.ic_delete)
+                        .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Ads ads = list.get(info.position);
+                                mAdsAdapter.getData().remove(ads);
+                                ads.delete(ADSManageActivity.this,new DeleteListener() {
+                                    @Override
+                                    public void onSuccess() {
+                                        Toast.makeText(ADSManageActivity.this,"删除成功",Toast.LENGTH_LONG).show();
+                                        mAdsAdapter.notifyDataSetChanged();
+                                    }
+
+                                    @Override
+                                    public void onFailure(int i, String s) {
+                                        Toast.makeText(ADSManageActivity.this,"删除失败："+s,Toast.LENGTH_LONG).show();
+                                    }
+                                });
+                                dialog.dismiss();
+                            }
+                        })
+                        .setNegativeButton(R.string.cancle, new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        }).show();
+
+                break;
+            default:
+                return super.onContextItemSelected(item);
+        }
+        return true;
     }
 }

@@ -8,20 +8,31 @@
     <string name="title_activity_about">AboutActivity</string>
     <string name="title_activity_admin_main">后台管理</string>
     <string name="title_activity_desktop">DesktopActivity</string>
-    <string name="title_activity_add_dish">AddDishActivity</string>
+    <string name="title_activity_add_dish">添加菜品</string>
     <string name="title_activity_order">OrderActivity</string>
     <string name="title_activity_ads">ADSActivity</string>
     <string name="title_activity_desktop_state">DesktopStateActivity</string>
     <string name="title_activity_add_ads">AddADSActivity</string>
     <string name="title_activity_waiter_add">添加服务员</string>
     <string name="title_activity_order_dish">点菜</string>
-    <string name="spin_prompt"> 请选择城市 </ string>
+    <string name="spin_prompt">请选择城市</string>
     <string name="dish_type_prompt">选择菜品类型</string>
-    < string-array name="dish_type">
-        < item> 凉菜 </ item>
-        < item> 小炒 </ item>
-        < item> 干锅 </ item>
-        < item> 汤类 </ item>
-    </ string-array>
+    <string name="take_picture">拍照</string>
+    <string name="open_picture">从相册选择</string>
+    <string name="delete">删除</string>
+    <string name="delete_dialog_message">您确定要删除这道记录么？</string>
+    <string name="yes">确定</string>
+    <string name="cancle">取消</string>
+    <string name="action_order_dish">开始点菜</string>
+    <string name="action_setting">多选</string>
+    <string name="select_item">已选择:</string>
+    <string name="action_select_all">全选</string>
+    <string name="action_deselect_all">全不选</string>
+    <string-array name="dish_type">
+        <item>凉菜</item>
+        <item>小炒</item>
+        <item>干锅</item>
+        <item>汤类</item>
+    </string-array>
 
 </resources>

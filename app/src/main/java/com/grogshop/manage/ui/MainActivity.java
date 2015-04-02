@@ -56,8 +56,8 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         list.add(new DesktopItem(20,"020\n餐桌"));
         list.add(new DesktopItem(21,"021\n餐桌"));
         mDesktopAdapter = new DesktopAdapter(this,list);
-        mGridView.setAdapter(mDesktopAdapter);
-    }
+    mGridView.setAdapter(mDesktopAdapter);
+}
     private void setListener(){
         mGridView.setOnItemClickListener(this);
     }
@@ -66,7 +66,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         String name = mDesktopAdapter.getData().get(position).getName();
         int index = mDesktopAdapter.getData().get(position).getPosition();
-        Intent intent = new Intent(MainActivity.this,ShowDishActivity.class);
+        Intent intent = new Intent(MainActivity.this,OrderDishActivity.class);
         intent.putExtra(ShowDishActivity.DESKTOP_NAME,name);
         intent.putExtra(ShowDishActivity.DESKTOP_POSITION,index);
         startActivity(intent);

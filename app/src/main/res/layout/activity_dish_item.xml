@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.grogshop.manage.ui.DishManageActivity"
+    >
+    <ImageView
+        android:id="@+id/dish_show_image"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/add_picture"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dish_show_name_text"
+        android:layout_toRightOf="@id/dish_show_image"
+        android:layout_alignTop="@id/dish_show_image"
+        android:textSize="25sp"
+        android:text="菜品名"
+        android:paddingLeft="10dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dish_show_price_text"
+        android:text="单价"
+        android:textSize="18sp"
+        android:textColor="#1a237e"
+        android:layout_alignParentRight="true"
+        android:paddingRight="10dp"
+        android:layout_alignBottom="@id/dish_show_name_text" />
+    <TextView
+        android:id="@+id/dish_show_info_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="这是菜品简介这是菜品简介这是菜品简介这是菜品简介这是菜品简介这是菜品简介这是菜品简介这是菜品简介这是菜品简介这是菜品简介"
+        android:layout_below="@id/dish_show_name_text"
+        android:layout_toRightOf="@id/dish_show_image"
+        android:layout_alignLeft="@id/dish_show_name_text"
+        android:layout_alignRight="@id/dish_show_price_text"
+        android:textSize="16sp"
+        android:padding="5dp"
+        android:layout_alignBottom="@id/dish_show_image"/>
+
+
+</RelativeLayout>

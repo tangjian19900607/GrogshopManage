@@ -33,7 +33,12 @@
         <!-- 主界面 -->
         <activity
             android:name=".ui.MainActivity"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:parentActivityName=".ui.LunchActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.grogshop.manage.ui.LunchActivity" />
+        </activity>
         <!-- 启动界面 -->
         <activity
             android:name=".ui.LunchActivity"
@@ -66,7 +71,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.grogshop.manage.ui.MainActivity" />
         </activity>
-        <!-- 菜品增加 -->
+        <!-- 菜品管理 -->
         <activity
             android:name=".ui.DishManageActivity"
             android:label="@string/title_activity_add_dish"
@@ -74,6 +79,15 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.grogshop.manage.ui.AdminMainActivity" />
+        </activity>
+        <!--菜品增加-->
+        <activity
+            android:name=".ui.AddDishActivity"
+            android:label="@string/title_activity_add_dish"
+            android:parentActivityName=".ui.DishManageActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.grogshop.manage.ui.DishManageActivity" />
         </activity>
         <!-- 订单管理 -->
         <activity
