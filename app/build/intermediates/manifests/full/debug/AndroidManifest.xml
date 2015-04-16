@@ -15,6 +15,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
     <uses-feature
         android:name="android.hardware.camera2"
@@ -31,25 +32,22 @@
         <activity
             android:name="com.grogshop.manage.ui.LoginActivity"
             android:label="@string/title_activity_login"
-            android:parentActivityName="com.grogshop.manage.ui.LunchActivity" >
+            android:parentActivityName="com.grogshop.manage.ui.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.grogshop.manage.ui.LunchActivity" />
+                android:value="com.grogshop.manage.ui.MainActivity" />
         </activity>
         <!-- 主界面 -->
         <activity
             android:name="com.grogshop.manage.ui.MainActivity"
-            android:label="@string/app_name" />
-        <!-- 启动界面 -->
-        <activity
-            android:name="com.grogshop.manage.ui.LunchActivity"
-            android:label="@string/title_activity_lunch" >
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <!-- 关于界面 -->
         <activity
             android:name="com.grogshop.manage.ui.AboutActivity"
@@ -72,7 +70,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.grogshop.manage.ui.MainActivity" />
         </activity>
-        <!-- 菜品增加 -->
+        <!-- 菜品管理 -->
         <activity
             android:name="com.grogshop.manage.ui.DishManageActivity"
             android:label="@string/title_activity_add_dish"
@@ -80,6 +78,15 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.grogshop.manage.ui.AdminMainActivity" />
+        </activity>
+        <!-- 菜品增加 -->
+        <activity
+            android:name="com.grogshop.manage.ui.AddDishActivity"
+            android:label="@string/title_activity_add_dish"
+            android:parentActivityName="com.grogshop.manage.ui.DishManageActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.grogshop.manage.ui.DishManageActivity" />
         </activity>
         <!-- 订单管理 -->
         <activity
@@ -135,6 +142,38 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.grogshop.manage.ui.ShowDishActivity" />
         </activity>
+        <activity
+            android:name="com.grogshop.manage.ui.DishInfoActivity"
+            android:label="@string/title_activity_dish_info"
+            android:parentActivityName="com.grogshop.manage.ui.OrderDishActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.grogshop.manage.ui.OrderDishActivity" />
+        </activity>
+        <activity
+            android:name="com.grogshop.manage.ui.ChooseMorePictureActivity"
+            android:label="选择图片" />
+        <activity
+            android:name="com.grogshop.manage.ui.PictureActivity"
+            android:label="查看图片"
+            android:parentActivityName="com.grogshop.manage.ui.AddDishActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.grogshop.manage.ui.AddDishActivity" />
+        </activity>
+
+        <!-- bmob pay sdk activity begin -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.bmob.pay.tool.PayActivity"
+            android:theme="@android:style/Theme.Translucent" />
+        <!-- bmob pay sdk activity end -->
     </application>
 
 </manifest>

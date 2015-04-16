@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/Users/tangjian/androidExample/android-play-location/GrogshopManage/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <!-- From: file:/C:/Users/jiamengyu/Desktop/Demo/GrogshopManage/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string-array name="dish_type">
+        <item>凉菜</item>
+        <item>小炒</item>
+        <item>干锅</item>
+        <item>汤类</item>
+    </string-array>
+    <!-- From: file:/C:/Users/jiamengyu/Desktop/Demo/GrogshopManage/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
     <attr format="reference" name="drawerArrowStyle"/>
     <attr format="dimension" name="height"/>
@@ -28,11 +36,11 @@
     <color name="bright_foreground_inverse_material_light">@color/bright_foreground_material_dark</color>
     <color name="bright_foreground_material_dark">@android:color/white</color>
     <color name="bright_foreground_material_light">@android:color/black</color>
-    <!-- From: file:/Users/tangjian/androidExample/android-play-location/GrogshopManage/app/src/main/res/values/colors.xml -->
+    <!-- From: file:/C:/Users/jiamengyu/Desktop/Demo/GrogshopManage/app/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="button_bg_normal">#3949AB</color>
     <color name="button_bg_pressed">#303F9F</color>
-    <!-- From: file:/Users/tangjian/androidExample/android-play-location/GrogshopManage/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <!-- From: file:/C:/Users/jiamengyu/Desktop/Demo/GrogshopManage/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
@@ -51,11 +59,11 @@
     <color name="material_blue_grey_950">#ff21272b</color>
     <color name="material_deep_teal_200">#ff80cbc4</color>
     <color name="material_deep_teal_500">#ff009688</color>
-    <!-- From: file:/Users/tangjian/androidExample/android-play-location/GrogshopManage/app/src/main/res/values/colors.xml -->
+    <!-- From: file:/C:/Users/jiamengyu/Desktop/Demo/GrogshopManage/app/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="orange_normal">#FF9800</color>
     <color name="orange_pressed">#FFCC80</color>
-    <!-- From: file:/Users/tangjian/androidExample/android-play-location/GrogshopManage/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <!-- From: file:/C:/Users/jiamengyu/Desktop/Demo/GrogshopManage/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
     <color name="primary_dark_material_dark">#ff000000</color>
     <color name="primary_dark_material_light">#ff757575</color>
@@ -65,11 +73,12 @@
     <color name="primary_text_default_material_light">#de000000</color>
     <color name="primary_text_disabled_material_dark">#4Dffffff</color>
     <color name="primary_text_disabled_material_light">#39000000</color>
-    <!-- From: file:/Users/tangjian/androidExample/android-play-location/GrogshopManage/app/src/main/res/values/colors.xml -->
+    <!-- From: file:/C:/Users/jiamengyu/Desktop/Demo/GrogshopManage/app/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="purple_normal">#9C27B0</color>
     <color name="purple_pressed">#BA68C8</color>
-    <!-- From: file:/Users/tangjian/androidExample/android-play-location/GrogshopManage/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <color name="read_bgcolor">#ffeeeeee</color>
+    <!-- From: file:/C:/Users/jiamengyu/Desktop/Demo/GrogshopManage/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
     <color name="ripple_material_dark">#40ffffff</color>
     <color name="ripple_material_light">#40000000</color>
@@ -79,6 +88,9 @@
     <color name="secondary_text_disabled_material_light">#24000000</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
+    <!-- From: file:/C:/Users/jiamengyu/Desktop/Demo/GrogshopManage/app/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="transparent">#00000000</color>
     <declare-styleable name="ActionBar"><attr name="navigationMode"><enum name="normal" value="0"/><enum name="listMode" value="1"/><enum name="tabMode" value="2"/></attr><attr name="displayOptions"><flag name="none" value="0"/><flag name="useLogo" value="0x1"/><flag name="showHome" value="0x2"/><flag name="homeAsUp" value="0x4"/><flag name="showTitle" value="0x8"/><flag name="showCustom" value="0x10"/><flag name="disableHome" value="0x20"/></attr><attr name="title"/><attr format="string" name="subtitle"/><attr format="reference" name="titleTextStyle"/><attr format="reference" name="subtitleTextStyle"/><attr format="reference" name="icon"/><attr format="reference" name="logo"/><attr format="reference" name="divider"/><attr format="reference" name="background"/><attr format="reference|color" name="backgroundStacked"/><attr format="reference|color" name="backgroundSplit"/><attr format="reference" name="customNavigationLayout"/><attr name="height"/><attr format="reference" name="homeLayout"/><attr format="reference" name="progressBarStyle"/><attr format="reference" name="indeterminateProgressStyle"/><attr format="dimension" name="progressBarPadding"/><attr name="homeAsUpIndicator"/><attr format="dimension" name="itemPadding"/><attr format="boolean" name="hideOnContentScroll"/><attr format="dimension" name="contentInsetStart"/><attr format="dimension" name="contentInsetEnd"/><attr format="dimension" name="contentInsetLeft"/><attr format="dimension" name="contentInsetRight"/><attr format="dimension" name="elevation"/><attr format="reference" name="popupTheme"/></declare-styleable>
     <declare-styleable name="ActionBarLayout"><attr name="android:layout_gravity"/></declare-styleable>
     <declare-styleable name="ActionMenuItemView"><attr name="android:minWidth"/></declare-styleable>
@@ -102,6 +114,8 @@
     <declare-styleable name="Toolbar"><attr format="reference" name="titleTextAppearance"/><attr format="reference" name="subtitleTextAppearance"/><attr name="title"/><attr name="subtitle"/><attr name="android:gravity"/><attr format="dimension" name="titleMargins"/><attr format="dimension" name="titleMarginStart"/><attr format="dimension" name="titleMarginEnd"/><attr format="dimension" name="titleMarginTop"/><attr format="dimension" name="titleMarginBottom"/><attr name="contentInsetStart"/><attr name="contentInsetEnd"/><attr name="contentInsetLeft"/><attr name="contentInsetRight"/><attr format="dimension" name="maxButtonHeight"/><attr format="reference" name="theme"/><attr format="reference" name="collapseIcon"/><attr format="string" name="collapseContentDescription"/><attr name="popupTheme"/><attr format="reference" name="navigationIcon"/><attr format="string" name="navigationContentDescription"/><attr name="android:minHeight"/></declare-styleable>
     <declare-styleable name="View"><attr format="dimension" name="paddingStart"/><attr format="dimension" name="paddingEnd"/><attr name="android:focusable"/></declare-styleable>
     <declare-styleable name="ViewStubCompat"><attr name="android:layout"/><attr name="android:inflatedId"/><attr name="android:id"/></declare-styleable>
+    <!-- From: file:/C:/Users/jiamengyu/Desktop/Demo/GrogshopManage/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <eat-comment/>
     <dimen name="abc_action_bar_default_height_material">56dp</dimen>
     <dimen name="abc_action_bar_default_padding_material">4dp</dimen>
     <dimen name="abc_action_bar_icon_vertical_padding_material">16dp</dimen>
@@ -139,11 +153,11 @@
     <dimen name="abc_text_size_subtitle_material_toolbar">16dp</dimen>
     <dimen name="abc_text_size_title_material">20sp</dimen>
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
-    <!-- From: file:/Users/tangjian/androidExample/android-play-location/GrogshopManage/app/src/main/res/values/dimens.xml -->
+    <!-- From: file:/C:/Users/jiamengyu/Desktop/Demo/GrogshopManage/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <!-- From: file:/Users/tangjian/androidExample/android-play-location/GrogshopManage/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <!-- From: file:/C:/Users/jiamengyu/Desktop/Demo/GrogshopManage/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
     <item name="dialog_fixed_height_major" type="dimen">80%</item>
     <item name="dialog_fixed_height_minor" type="dimen">100%</item>
@@ -177,29 +191,47 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
-    <!-- From: file:/Users/tangjian/androidExample/android-play-location/GrogshopManage/app/src/main/res/values/strings.xml -->
+    <!-- From: file:/C:/Users/jiamengyu/Desktop/Demo/GrogshopManage/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string name="action_deselect_all">全不选</string>
+    <string name="action_order_dish">开始点菜</string>
+    <string name="action_select_all">全选</string>
+    <string name="action_setting">多选</string>
     <string name="action_settings">Settings</string>
     <string name="app_name">酒店点菜</string>
+    <string name="cancle">取消</string>
+    <string name="delete">删除</string>
+    <string name="delete_dialog_message">您确定要删除这道记录么？</string>
+    <string name="dish_type_prompt">选择菜品类型</string>
     <string name="hello_world">Hello world!</string>
+    <string name="open_picture">从相册选择</string>
+    <string name="select_item">已选择:</string>
+    <string name="spin_prompt">请选择城市</string>
+    <string name="take_picture">拍照</string>
     <string name="title_activity_about">AboutActivity</string>
-    <string name="title_activity_add_ads">AddADSActivity</string>
-    <string name="title_activity_add_dish">AddDishActivity</string>
+    <string name="title_activity_add_ads">添加公告</string>
+    <string name="title_activity_add_dish">添加菜品</string>
     <string name="title_activity_admin_main">后台管理</string>
     <string name="title_activity_ads">ADSActivity</string>
     <string name="title_activity_desktop">DesktopActivity</string>
     <string name="title_activity_desktop_state">DesktopStateActivity</string>
+    <string name="title_activity_dish_info">DishInfo</string>
     <string name="title_activity_login">登录</string>
     <string name="title_activity_lunch">酒店点菜</string>
     <string name="title_activity_order">OrderActivity</string>
     <string name="title_activity_order_dish">点菜</string>
     <string name="title_activity_waiter_add">添加服务员</string>
-    <!-- From: file:/Users/tangjian/androidExample/android-play-location/GrogshopManage/app/src/main/res/values/styles.xml -->
+    <string name="yes">确定</string>
+    <!-- From: file:/C:/Users/jiamengyu/Desktop/Demo/GrogshopManage/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="Theme.AppCompat.Light">
-        <!-- Customize your theme here. -->
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+
+        <!-- Support library compatibility -->
+        <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="android:textSize">18sp</item>
     </style>
-    <!-- From: file:/Users/tangjian/androidExample/android-play-location/GrogshopManage/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <!-- From: file:/C:/Users/jiamengyu/Desktop/Demo/GrogshopManage/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
     <style name="Base.TextAppearance.AppCompat" parent="android:TextAppearance">
         <item name="android:textColor">?android:textColorPrimary</item>
@@ -953,6 +985,17 @@
         <item name="android:scaleType">center</item>
         <item name="android:background">?attr/selectableItemBackground</item>
     </style>
+    <!-- From: file:/C:/Users/jiamengyu/Desktop/Demo/GrogshopManage/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@android:color/white</item>
+
+        <!-- Support library compatibility -->
+        <item name="background">@android:color/white</item>
+
+    </style>
+    <!-- From: file:/C:/Users/jiamengyu/Desktop/Demo/GrogshopManage/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <eat-comment/>
     <style name="Platform.AppCompat" parent="android:Theme">
         <item name="android:windowNoTitle">true</item>
         <item name="buttonBarStyle">@android:style/ButtonBar</item>
@@ -1237,4 +1280,10 @@
     <style name="Widget.AppCompat.Spinner.DropDown.ActionBar" parent="Base.Widget.AppCompat.Spinner.DropDown.ActionBar"/>
     <style name="Widget.AppCompat.Toolbar" parent="Base.Widget.AppCompat.Toolbar"/>
     <style name="Widget.AppCompat.Toolbar.Button.Navigation" parent="Base.Widget.AppCompat.Toolbar.Button.Navigation"/>
+    <!-- From: file:/C:/Users/jiamengyu/Desktop/Demo/GrogshopManage/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="anim_popup_dir">
+        <item name="android:windowEnterAnimation">@anim/slid_in</item>
+        <item name="android:windowExitAnimation">@anim/slide_out</item>
+    </style>
 </resources>

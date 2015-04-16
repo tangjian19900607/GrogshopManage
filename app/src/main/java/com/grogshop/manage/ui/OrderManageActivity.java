@@ -3,6 +3,7 @@ package com.grogshop.manage.ui;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -37,12 +38,14 @@ public class OrderManageActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
+
         setTitle("订单管理");
         initViewId();
         initProgressDialog();
         initData();
         registerForContextMenu(mOrderListView);
     }
+
 
 
     private void initViewId() {

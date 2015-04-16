@@ -1,6 +1,7 @@
 package com.grogshop.manage.ui;
 
 import android.app.ProgressDialog;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -29,6 +30,7 @@ public class AddADSActivity extends ActionBarActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_ads);
+
         setTitle("新增公告");
         initViewId();
         setListener();

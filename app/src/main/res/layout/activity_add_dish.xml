@@ -108,11 +108,25 @@
         android:id="@+id/dish_image"
         android:layout_width="280dp"
         android:layout_height="280dp"
-        android:layout_below="@id/dish_image_text"
-        android:padding="20dp"
         android:layout_centerHorizontal="true"
-        android:scaleType="fitXY"
-        />
+        android:layout_centerVertical="true"
+        android:layout_below="@id/dish_image_text"
+        android:visibility="gone"/>
+    <GridView
+        android:layout_alignLeft="@id/dish_name_text"
+        android:gravity="center"
+        android:id="@+id/dish_grid_image"
+        android:layout_below="@id/dish_image_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:horizontalSpacing="2dp"
+        android:numColumns="3"
+        android:scrollbars="none"
+        android:verticalSpacing="2dp"
+        android:stretchMode="columnWidth"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/add_dish"
@@ -122,4 +136,11 @@
         android:textColor="@android:color/white"
         android:background="@drawable/button_bg"
         android:layout_alignParentBottom="true" />
+
+    <com.grogshop.manage.util.CircleProgressBar
+        android:id="@+id/circle_progressbar"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
 </RelativeLayout>

@@ -1,8 +1,28 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light">
-        <!-- Customize your theme here. -->
+
+
+    <style name="anim_popup_dir">
+        <item name="android:windowEnterAnimation">@anim/slid_in</item>
+        <item name="android:windowExitAnimation">@anim/slide_out</item>
     </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+
+        <!-- Support library compatibility -->
+        <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <!-- ActionBar 样式 -->
+    <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@android:color/white</item>
+
+        <!-- Support library compatibility -->
+        <item name="background">@android:color/white</item>
+
+    </style>
+
 
 </resources>

@@ -2,8 +2,8 @@ package com.grogshop.manage.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,47 +14,31 @@ import android.widget.TextView;
 
 import com.grogshop.manage.R;
 import com.grogshop.manage.domain.Dish;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.grogshop.manage.util.ImageLoaderUtil;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
-import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
-import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 
-import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
+
+import static com.grogshop.manage.util.ImageLoaderUtil.*;
 
 /**
  * Created by jiamengyu on 3/31/2015.
  */
 public class DishAdapter extends BaseAdapter{
+    private static final String TAG = "DishAdapterTAG";
     private List<Dish> mList;
     private LayoutInflater mLayoutInflater;
     private Context mContext;
     private ListView mListView;
-    DisplayImageOptions options;
-    private ImageLoadingListener animateFirstListener = new AnimateFirstDisplayListener();
 
     public DishAdapter(Context context,List<Dish> list,ListView listview) {
             mContext = context;
             mListView = listview;
             mList = list;
             mLayoutInflater = LayoutInflater.from(context);
-            initDisplayImageOptions();
+            ImageLoaderUtil.initDisplayImageOptions();
     }
-    private void initDisplayImageOptions() {
-        options = new DisplayImageOptions.Builder()
-                .showImageOnLoading(R.drawable.ic_stub)
-                .showImageForEmptyUri(R.drawable.ic_empty)
-                .showImageOnFail(R.drawable.ic_error)
-                .cacheInMemory(true)
-                .cacheOnDisk(true)
-                .considerExifParams(true)
-                .displayer(new SimpleBitmapDisplayer())
-                .build();
-    }
-
 
     @Override
     public int getCount() {
@@ -97,7 +81,10 @@ public class DishAdapter extends BaseAdapter{
         viewHolder.name.setText(mList.get(position).getName());
         viewHolder.price.setText("¥"+mList.get(position).getPrice());
         viewHolder.info.setText(mList.get(position).getInfo());
-        ImageLoader.getInstance().displayImage(mList.get(position).getImage(), viewHolder.image, options, animateFirstListener);
+        //拿到图片集的第一张图片
+        String[] ImgArray =mList.get(position).getImage().split(",");
+        ImageLoader.getInstance().displayImage(ImgArray[0], viewHolder.image,
+                options, ImageLoaderUtil.AnimateFirstDisplayListener);
         updateBackground(position,convertView);
         return convertView;
     }
@@ -107,21 +94,7 @@ public class DishAdapter extends BaseAdapter{
         private TextView name;
         private TextView price;
     }
-    private static class AnimateFirstDisplayListener extends SimpleImageLoadingListener{
-        static final List<String> displayedImages = Collections.synchronizedList(new LinkedList<String>());
-        @Override
-        public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
-            if (loadedImage != null) {
-                ImageView imageView = (ImageView) view;
-                boolean firstDisplay = !displayedImages.contains(imageUri);
-                if (firstDisplay) {
-                    FadeInBitmapDisplayer.animate(imageView, 500);
-                    displayedImages.add(imageUri);
-                }
-            }
 
-        }
-    }
     @SuppressLint("NewApi")
     public void updateBackground(int position, View view) {
         int backgroundId;

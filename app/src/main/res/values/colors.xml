@@ -7,5 +7,6 @@
     <color name="orange_normal">#FF9800</color>
     <color name="orange_pressed">#FFCC80</color>
     <color name="read_bgcolor">#ffeeeeee</color>
+    <color name="transparent">#00000000</color>
 
 </resources>

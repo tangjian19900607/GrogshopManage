@@ -1,6 +1,7 @@
 package com.grogshop.manage.ui;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,6 +25,7 @@ public class AdminMainActivity extends ActionBarActivity implements AdapterView.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_main);
+
         initViewId();
         initData();
         setListener();
@@ -34,7 +36,7 @@ public class AdminMainActivity extends ActionBarActivity implements AdapterView.
     }
 
     private void initData() {
-        List<AdminItem> list = new ArrayList<AdminItem>();
+        List<AdminItem> list = new ArrayList<>();
         list.add(new AdminItem(001, "菜品\n管理"));
         list.add(new AdminItem(002, "订单\n管理"));
         list.add(new AdminItem(003, "人员\n管理"));

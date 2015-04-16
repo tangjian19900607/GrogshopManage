@@ -1,6 +1,7 @@
 package com.grogshop.manage.ui;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Looper;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -27,11 +28,11 @@ public class LunchActivity extends ActionBarActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lunch);
+
 //        initUser();
         initView();
         setListener();
     }
-
 
     private void initView() {
         mAdminButton = (Button) this.findViewById(R.id.admin);

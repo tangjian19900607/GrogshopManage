@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 import com.grogshop.manage.R;
 import com.grogshop.manage.adapter.DishAdapter;
 import com.grogshop.manage.domain.Dish;
+import com.grogshop.manage.util.ImageLoaderUtil;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
@@ -32,11 +34,13 @@ public class DishManageActivity extends ActionBarActivity {
     private ProgressDialog mProgressDialog;
     private String mActivityName;
     DishAdapter mDishAdapter;
+    ImageLoaderUtil mImageLoaderUtil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dish);
+
         mActivityName = getIntent().getStringExtra(AdminMainActivity.NAME);
         setTitle(mActivityName);
         initImageLoader();
@@ -46,9 +50,9 @@ public class DishManageActivity extends ActionBarActivity {
         registerForContextMenu(mDishListView);
     }
 
+
     private void initImageLoader() {
-        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext()).build();
-        ImageLoader.getInstance().init(config);
+        mImageLoaderUtil = new ImageLoaderUtil(this);
     }
 
     private void initData() {

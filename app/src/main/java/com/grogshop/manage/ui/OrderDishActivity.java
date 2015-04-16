@@ -3,6 +3,7 @@ package com.grogshop.manage.ui;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.SparseBooleanArray;
@@ -13,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -21,6 +23,7 @@ import android.widget.Toast;
 import com.grogshop.manage.R;
 import com.grogshop.manage.adapter.DishAdapter;
 import com.grogshop.manage.domain.Dish;
+import com.grogshop.manage.util.ImageLoaderUtil;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
@@ -30,7 +33,7 @@ import java.util.List;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.listener.FindListener;
 
-public class OrderDishActivity extends ActionBarActivity implements  View.OnClickListener {
+public class OrderDishActivity extends ActionBarActivity implements  View.OnClickListener,AdapterView.OnItemClickListener {
     private ListView mDishListView;
     private List<Dish> mDishList;
     private ProgressDialog mProgressDialog;
@@ -44,6 +47,7 @@ public class OrderDishActivity extends ActionBarActivity implements  View.OnClic
     private String mDesktopName;
     private int mDesktopPosition;
     public static List<Dish> mOrderedList = new ArrayList<>();
+    ImageLoaderUtil imageLoaderUtil;
 
 
 
@@ -53,6 +57,7 @@ public class OrderDishActivity extends ActionBarActivity implements  View.OnClic
         setContentView(R.layout.activity_order_dish);
         initImageLoader();
         getIntentValue();
+
         initView();
         initProgressDialog();
         initData();
@@ -61,8 +66,7 @@ public class OrderDishActivity extends ActionBarActivity implements  View.OnClic
 
 
     private void initImageLoader() {
-        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext()).build();
-        ImageLoader.getInstance().init(config);
+        imageLoaderUtil = new ImageLoaderUtil(this);
     }
 
     private void getIntentValue() {
@@ -81,6 +85,7 @@ public class OrderDishActivity extends ActionBarActivity implements  View.OnClic
     private void initData() {
         mProgressDialog.show();
         BmobQuery<Dish> bmobQuery = new BmobQuery<Dish>();
+        bmobQuery.order("-createdAt");
         bmobQuery.findObjects(OrderDishActivity.this,new FindListener<Dish>() {
             @Override
             public void onSuccess(List<Dish> dishs) {
@@ -105,6 +110,7 @@ public class OrderDishActivity extends ActionBarActivity implements  View.OnClic
         modeCallBack = new ModeCallBack();
         mDishListView.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE_MODAL);
         mDishListView.setMultiChoiceModeListener(modeCallBack);
+        mDishListView.setOnItemClickListener(this);
     }
 
     private void initProgressDialog() {
@@ -112,6 +118,7 @@ public class OrderDishActivity extends ActionBarActivity implements  View.OnClic
         mProgressDialog.setTitle("提示");
         mProgressDialog.setMessage("正在获取数据");
     }
+
     private void setListener() {
         mOrderButton.setOnClickListener(this);
     }
@@ -168,6 +175,20 @@ public class OrderDishActivity extends ActionBarActivity implements  View.OnClic
         showDishIntent.putExtra(DESKTOP_POSITION,mDesktopPosition);
         startActivity(showDishIntent);
         finish();
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        //Toast.makeText(this,"您点击的是："+position,Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this,DishInfoActivity.class);
+        Dish currentDish = mDishList.get(position);
+        Bundle bundle = new Bundle();
+        bundle.putString("dishName",currentDish.getName());
+        bundle.putString("dishDesc",currentDish.getInfo());
+        bundle.putDouble("dishPrice",currentDish.getPrice());
+        bundle.putString("dishImg",currentDish.getImage());
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 
     private class ModeCallBack implements AbsListView.MultiChoiceModeListener{
