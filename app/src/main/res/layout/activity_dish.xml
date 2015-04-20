@@ -2,6 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <com.grogshop.manage.view.RefreshLayout
+        android:id="@+id/dishmag_swipe_refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <ListView
         android:id="@+id/dish_listview"
         android:layout_width="match_parent"
@@ -10,6 +14,7 @@
         android:cacheColorHint="@android:color/transparent"
         android:listSelector="@android:color/transparent"
         />
+    </com.grogshop.manage.view.RefreshLayout>
     <TextView
         android:id="@+id/dish_empty_view"
         android:layout_width="match_parent"

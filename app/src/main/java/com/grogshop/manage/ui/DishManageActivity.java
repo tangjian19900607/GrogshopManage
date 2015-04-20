@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -20,6 +21,7 @@ import com.grogshop.manage.R;
 import com.grogshop.manage.adapter.DishAdapter;
 import com.grogshop.manage.domain.Dish;
 import com.grogshop.manage.util.ImageLoaderUtil;
+import com.grogshop.manage.view.RefreshLayout;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
@@ -35,6 +37,10 @@ public class DishManageActivity extends ActionBarActivity {
     private String mActivityName;
     DishAdapter mDishAdapter;
     ImageLoaderUtil mImageLoaderUtil;
+    private RefreshLayout mRefreshLayout;
+    private int currentPage = 1;
+    private int limit = 10;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +53,55 @@ public class DishManageActivity extends ActionBarActivity {
         initViewId();
         initProgressDialog();
         initData();
+        setListener();
         registerForContextMenu(mDishListView);
     }
+
+    private void setListener() {
+        mRefreshLayout.setOnLoadListener(new RefreshLayout.OnLoadListener() {
+            @Override
+            public void onLoad() {
+                Toast.makeText(DishManageActivity.this, "loading...", Toast.LENGTH_LONG).show();
+                mRefreshLayout.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        //加载数据
+                        PullUpToLoad();
+                        //更新后结束加载
+                        mRefreshLayout.setLoading(false);
+                    }
+                }, 2000);
+            }
+        });
+    }
+    private void PullUpToLoad() {
+        BmobQuery<Dish> query = new BmobQuery<Dish>();
+        query.setLimit(limit);
+        query.setSkip(currentPage * limit);
+        query.order("-createdAt");
+        query.findObjects(DishManageActivity.this, new FindListener<Dish>() {
+            @Override
+            public void onSuccess(List<Dish> list) {
+                if (list.size() > 0) {
+                    mDishAdapter.addData(list);
+                    if (mDishAdapter.getCount() > limit) {
+                        currentPage++;
+                    }
+                    Toast.makeText(DishManageActivity.this, "第" + currentPage + "页加载完毕", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(DishManageActivity.this, "没有更多可以加载的内容", Toast.LENGTH_LONG).show();
+                }
+
+            }
+
+            @Override
+            public void onError(int i, String s) {
+                Toast.makeText(DishManageActivity.this, "查询更多菜品失败", Toast.LENGTH_LONG).show();
+
+            }
+        });
+    }
+
 
 
     private void initImageLoader() {
@@ -78,6 +131,7 @@ public class DishManageActivity extends ActionBarActivity {
     private void initViewId() {
         mDishListView = (ListView) findViewById(R.id.dish_listview);
         mDishListView.setEmptyView(findViewById(R.id.dish_empty_view));
+        mRefreshLayout = (RefreshLayout) findViewById(R.id.dishmag_swipe_refreshLayout);
     }
     private void initProgressDialog() {
         mProgressDialog = new ProgressDialog(this);

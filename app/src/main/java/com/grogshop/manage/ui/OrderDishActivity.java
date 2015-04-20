@@ -3,7 +3,7 @@ package com.grogshop.manage.ui;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.ColorDrawable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.SparseBooleanArray;
@@ -24,8 +24,7 @@ import com.grogshop.manage.R;
 import com.grogshop.manage.adapter.DishAdapter;
 import com.grogshop.manage.domain.Dish;
 import com.grogshop.manage.util.ImageLoaderUtil;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.grogshop.manage.view.RefreshLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +33,7 @@ import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.listener.FindListener;
 
 public class OrderDishActivity extends ActionBarActivity implements  View.OnClickListener,AdapterView.OnItemClickListener {
+    private static final String TAG = "OrderDishActivityTag";
     private ListView mDishListView;
     private List<Dish> mDishList;
     private ProgressDialog mProgressDialog;
@@ -48,6 +48,11 @@ public class OrderDishActivity extends ActionBarActivity implements  View.OnClic
     private int mDesktopPosition;
     public static List<Dish> mOrderedList = new ArrayList<>();
     ImageLoaderUtil imageLoaderUtil;
+    private RefreshLayout mRefreshLayout;
+    private long localFirstDishTime;
+    private Boolean isUpdate = false;
+    private int currentPage = 1;
+    private int limit = 10;
 
 
 
@@ -57,7 +62,6 @@ public class OrderDishActivity extends ActionBarActivity implements  View.OnClic
         setContentView(R.layout.activity_order_dish);
         initImageLoader();
         getIntentValue();
-
         initView();
         initProgressDialog();
         initData();
@@ -89,6 +93,8 @@ public class OrderDishActivity extends ActionBarActivity implements  View.OnClic
         bmobQuery.findObjects(OrderDishActivity.this,new FindListener<Dish>() {
             @Override
             public void onSuccess(List<Dish> dishs) {
+                Dish localFirstDish = dishs.get(0);
+                localFirstDishTime = localFirstDish.getTime();
                 mProgressDialog.dismiss();
                 mDishList = dishs;
                 mDishAdapter = new DishAdapter(OrderDishActivity.this,dishs,mDishListView);
@@ -111,6 +117,7 @@ public class OrderDishActivity extends ActionBarActivity implements  View.OnClic
         mDishListView.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE_MODAL);
         mDishListView.setMultiChoiceModeListener(modeCallBack);
         mDishListView.setOnItemClickListener(this);
+        mRefreshLayout = (RefreshLayout) findViewById(R.id.swipe_refreshLayout);
     }
 
     private void initProgressDialog() {
@@ -121,13 +128,117 @@ public class OrderDishActivity extends ActionBarActivity implements  View.OnClic
 
     private void setListener() {
         mOrderButton.setOnClickListener(this);
+        mRefreshLayout.setColorScheme(R.color.orange_normal, R.color.button_bg_normal, R.color.orange_pressed, R.color.purple_pressed);
+        mRefreshLayout.setOnLoadListener(new RefreshLayout.OnLoadListener() {
+            @Override
+            public void onLoad() {
+                Toast.makeText(OrderDishActivity.this, "loading...", Toast.LENGTH_LONG).show();
+                mRefreshLayout.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        //加载数据
+                        PullUpToLoad();
+                        //更新后结束加载
+                        mRefreshLayout.setLoading(false);
+                    }
+                }, 2000);
+            }
+        });
+        mRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Toast.makeText(OrderDishActivity.this, "refresh...", Toast.LENGTH_LONG).show();
+                mRefreshLayout.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        //刷新数据
+                        PullDownToRefresh();
+                        //结束刷新
+                        mRefreshLayout.setRefreshing(false);
+                    }
+                }, 2000);
+            }
+        });
     }
 
+    private void PullUpToLoad() {
+        BmobQuery<Dish> query = new BmobQuery<Dish>();
+        query.setLimit(limit);
+        query.setSkip(currentPage * limit);
+        query.order("-createdAt");
+        query.findObjects(OrderDishActivity.this, new FindListener<Dish>() {
+            @Override
+            public void onSuccess(List<Dish> list) {
+                if (list.size() > 0) {
+                    mDishAdapter.addData(list);
+                    if (mDishAdapter.getCount() > limit ) {
+                        currentPage++;
+                    }
+                    Toast.makeText(OrderDishActivity.this, "第" + currentPage + "页加载完毕", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(OrderDishActivity.this, "没有更多可以加载的内容", Toast.LENGTH_LONG).show();
+                }
+
+            }
+
+            @Override
+            public void onError(int i, String s) {
+                Toast.makeText(OrderDishActivity.this, "查询更多菜品失败", Toast.LENGTH_LONG).show();
+
+            }
+        });
+    }
+
+    private void PullDownToRefresh() {
+        BmobQuery<Dish> query = new BmobQuery<Dish>();
+        query.addWhereGreaterThan("time", localFirstDishTime);
+        query.order("-createdAt");
+        query.findObjects(OrderDishActivity.this, new FindListener<Dish>() {
+            @Override
+            public void onSuccess(List<Dish> list) {
+                if (list.size() > 0) {
+                    mDishAdapter.addNewData(list);
+                    localFirstDishTime = list.get(0).getTime();
+                } else {
+                    Toast.makeText(OrderDishActivity.this, "没有更多数据", Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onError(int i, String s) {
+                Toast.makeText(OrderDishActivity.this, "查询更新菜品失败", Toast.LENGTH_LONG).show();
+            }
+        });
+    }
 
     @Override
     protected void onResume() {
         super.onResume();
         initData();
+        /*BmobQuery<Dish> query = new BmobQuery<Dish>();
+        query.addWhereGreaterThan("time", localFirstDishTime);
+        query.order("-createdAt");
+        query.findObjects(OrderDishActivity.this, new FindListener<Dish>() {
+            @Override
+            public void onSuccess(final List<Dish> list) {
+                if (list.size() > 0) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(OrderDishActivity.this);
+                    builder.setTitle("请注意").setMessage("菜品有更新，现将为您更新新的菜品。")
+                            .setPositiveButton("更新", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    mDishAdapter.addNewData(list);
+                                    localFirstDishTime = list.get(0).getTime();
+                                }
+                            }).create().show();
+                }
+            }
+
+            @Override
+            public void onError(int i, String s) {
+                Toast.makeText(OrderDishActivity.this, "查询失败", Toast.LENGTH_LONG).show();
+            }
+        });*/
     }
 
     @Override

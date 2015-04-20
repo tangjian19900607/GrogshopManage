@@ -32,6 +32,7 @@ import com.grogshop.manage.util.CircleProgressBar;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import cn.bmob.v3.Bmob;
@@ -272,7 +273,6 @@ public class AddDishActivity extends ActionBarActivity implements AdapterView.On
     }
 
     private void AddDishBatch() {
-        mProgressDialog.show();
         String[] selectImgPath = mSelectedImg.toArray(new String[mSelectedImg.size()]);
         Bmob.uploadBatch(this, selectImgPath, new UploadBatchListener() {
             @Override
@@ -286,12 +286,13 @@ public class AddDishActivity extends ActionBarActivity implements AdapterView.On
                     if (price == null || "".equals(price) || saveFilePath == null || "".equals(saveFilePath)) {
                         Toast.makeText(AddDishActivity.this, "请输入单价/照片", Toast.LENGTH_SHORT).show();
                     } else {
-                        //mProgressDialog.show();
+                        mProgressDialog.show();
                         Dish dish = new Dish();
                         dish.setName(null == name || "".equals(name) ? "暂无名称" : name);
                         dish.setInfo(null == info || "".equals(info) ? "暂无简介" : info);
                         dish.setPrice(Double.parseDouble(price));
                         dish.setImage(saveFilePath);
+                        dish.setTime(new Date().getTime());
                         dish.save(AddDishActivity.this, new SaveListener() {
                             @Override
                             public void onSuccess() {

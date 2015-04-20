@@ -40,6 +40,9 @@ public class DishAdapter extends BaseAdapter{
             ImageLoaderUtil.initDisplayImageOptions();
     }
 
+
+
+
     @Override
     public int getCount() {
         return null == mList ? 0 : mList.size();
@@ -59,8 +62,18 @@ public class DishAdapter extends BaseAdapter{
         return this.mList;
     }
 
+    public void addNewData(List<Dish> list) {
+        list.addAll(mList);
+        mList = list;
+        notifyDataSetChanged();
+    }
     public void setData(List<Dish> list) {
-        this.mList = list;
+        mList = list;
+        notifyDataSetChanged();
+    }
+
+    public void addData(List<Dish> list) {
+        mList.addAll(list);
         notifyDataSetChanged();
     }
 
@@ -85,9 +98,12 @@ public class DishAdapter extends BaseAdapter{
         String[] ImgArray =mList.get(position).getImage().split(",");
         ImageLoader.getInstance().displayImage(ImgArray[0], viewHolder.image,
                 options, ImageLoaderUtil.AnimateFirstDisplayListener);
-        updateBackground(position,convertView);
+        updateBackground(position, convertView);
         return convertView;
     }
+
+
+
     private static class ViewHolder {
         private ImageView image;
         private TextView info;

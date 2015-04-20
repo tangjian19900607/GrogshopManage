@@ -27,6 +27,19 @@ public class Dish extends BmobObject {
      */
     private String info;
 
+    /**
+     * 菜品添加时间
+     */
+    private Long time;
+
+    public Long getTime() {
+        return time;
+    }
+
+    public void setTime(Long time) {
+        this.time = time;
+    }
+
     public Dish() {
     }
 

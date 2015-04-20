@@ -35,5 +35,6 @@
         <item>汤类</item>
     </string-array>
     <string name="title_activity_dish_info">DishInfo</string>
+    <string name="load">加载中</string>
 
 </resources>

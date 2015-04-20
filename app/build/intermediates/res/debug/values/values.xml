@@ -204,6 +204,7 @@
     <string name="delete_dialog_message">您确定要删除这道记录么？</string>
     <string name="dish_type_prompt">选择菜品类型</string>
     <string name="hello_world">Hello world!</string>
+    <string name="load">加载中</string>
     <string name="open_picture">从相册选择</string>
     <string name="select_item">已选择:</string>
     <string name="spin_prompt">请选择城市</string>
